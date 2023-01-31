@@ -1,8 +1,8 @@
 {
-  "name": "next-firebase-starter",
+  "name": "yalltube",
   "private": true,
   "version": "1.0.0",
-  "author": "Trinity Christiana",
+  "author": "Whitley Beers, Eric Frey, Allison Blumenthal, Erin Stephens, Graham Reid",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
