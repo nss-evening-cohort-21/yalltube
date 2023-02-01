@@ -34,7 +34,8 @@ body {
   border-radius: 20px;
 }
 .home-content-container{
-  height: 800px;
+  height: 90%;
+  position:fixed;
   overflow-y: scroll;
 }
 .home-card-container{
