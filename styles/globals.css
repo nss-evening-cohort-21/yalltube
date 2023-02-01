@@ -26,3 +26,8 @@ body {
   display: flex;
   flex-direction: column;
 }
+
+.profile-modal {
+  background-color: #212529;
+  color: whitesmoke;
+}
