@@ -1,6 +1,10 @@
 import React, { useState } from 'react';
-import { Image, Modal } from 'react-bootstrap';
+import {
+  Card, Image, Modal, ModalTitle,
+} from 'react-bootstrap';
+import Link from 'next/link';
 import { useAuth } from '../utils/context/authContext';
+import { signOut } from '../utils/auth';
 
 export default function ProfileModal() {
   const [show, setShow] = useState(false);
@@ -11,37 +15,45 @@ export default function ProfileModal() {
 
   return (
     <>
-      {/* <Button variant="primary" onClick={handleShow}>
-        Launch demo modal
-      </Button> */}
       <Image
         src={user.photoURL}
         alt="Picture of the author"
-        width="50"
-        height="50"
+        width="60"
+        height="60"
         onClick={handleShow}
         roundedCircle
       />
 
       <Modal show={show} onHide={handleClose}>
-        <Modal.Header closeButton>
+        <Modal.Header>
           <Image
             src={user.photoURL}
             alt="Picture of the author"
-            width="50"
-            height="50"
+            width="60"
+            height="60"
             onClick={handleShow}
             roundedCircle
           />
+          <div>
+            <ModalTitle>{user.displayName}</ModalTitle>
+            <ModalTitle>{user.email}</ModalTitle>
+          </div>
         </Modal.Header>
-        <Modal.Body>Woohoo, reading this text in a modal!</Modal.Body>
+        <Modal.Body>
+          <Link passHref href="/library">
+            <Card.Link href="" onClick={handleClose}>
+              Your channel
+            </Card.Link>
+          </Link>
+          <br />
+          <Link passHref href="/">
+            <Card.Link href="" onClick={signOut}>
+              Sign out
+            </Card.Link>
+          </Link>
+        </Modal.Body>
         <Modal.Footer>
-          {/* <Button variant="secondary" onClick={handleClose}>
-            Close
-          </Button> */}
-          {/* <Button variant="primary" onClick={handleClose}>
-            Save Changes
-          </Button> */}
+          Last Login Date {new Date(user.metadata.lastSignInTime).toLocaleDateString()};
         </Modal.Footer>
       </Modal>
     </>
