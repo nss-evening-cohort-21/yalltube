@@ -5,6 +5,7 @@ import {
 import Link from 'next/link';
 import { useAuth } from '../utils/context/authContext';
 import { signOut } from '../utils/auth';
+// import '../styles/profile-modal.css';
 
 export default function ProfileModal() {
   const [show, setShow] = useState(false);
