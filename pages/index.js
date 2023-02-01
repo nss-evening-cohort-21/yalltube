@@ -1,26 +1,32 @@
-import { signOut } from '../utils/auth';
+import Head from 'next/head';
+import React, { useEffect, useState } from 'react';
+import { getHomeVideos } from '../API/videoData';
+import VideoCard from '../components/VideoCard';
 import { useAuth } from '../utils/context/authContext';
 
-function Home() {
+export default function Home() {
+  const [homeVideos, setHomeVideos] = useState([]);
   const { user } = useAuth();
+  const displayHomeVideos = () => {
+    getHomeVideos(user.uid).then(setHomeVideos);
+  };
+
+  useEffect(() => {
+    getHomeVideos(user.uid).then(setHomeVideos);
+  }, [user]);
 
   return (
-    <div
-      className="text-center d-flex flex-column justify-content-center align-content-center"
-      style={{
-        height: '90vh',
-        padding: '30px',
-        maxWidth: '400px',
-        margin: '0 auto',
-      }}
-    >
-      <h1>Hello {user.displayName}! </h1>
-      <p>Click the button below to logout!</p>
-      <button className="btn btn-danger btn-lg copy-btn" type="button" onClick={signOut}>
-        Sign Out
-      </button>
-    </div>
+    <>
+      <Head>
+        <title>Home Videos</title>
+      </Head>
+      <div>
+        <div className="teams-content-container">{homeVideos.map((video) => (
+          <VideoCard key={video.firebaseKey} videoObj={video} onUpdate={displayHomeVideos} />
+        ))}
+        </div>
+      </div>
+
+    </>
   );
 }
-
-export default Home;

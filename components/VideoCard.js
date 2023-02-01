@@ -5,8 +5,8 @@ import PropTypes from 'prop-types';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import Link from 'next/link';
-import deleteVideo from '../API/videoData';
 import { useAuth } from '../utils/context/authContext';
+import { deleteVideo } from '../API/videoData';
 
 function VideoCard({ videoObj, onUpdate }) {
   const deleteThisVideo = () => {
@@ -29,6 +29,7 @@ function VideoCard({ videoObj, onUpdate }) {
           <p>{videoObj.description}</p>
           <p>Created by:{videoObj.username}</p>
           <p className="card-public">{videoObj.public === true ? 'Public' : 'Private' }</p>
+          <p>{videoObj.date_added}</p>
           <hr />
           <Link href={`/video/${videoObj.firebaseKey}`} passHref>
             <Button className="video-view-button">VIEW</Button>
