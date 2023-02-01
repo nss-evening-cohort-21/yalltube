@@ -6,6 +6,7 @@ import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import Link from 'next/link';
 import deleteVideo from '../API/videoData';
+import { useAuth } from '../utils/context/authContext';
 
 function VideoCard({ videoObj, onUpdate }) {
   const deleteThisVideo = () => {
@@ -13,7 +14,8 @@ function VideoCard({ videoObj, onUpdate }) {
       deleteVideo(videoObj.firebaseKey).then(() => onUpdate());
     }
   };
-
+  const { user } = useAuth();
+  console.warn(user.uid);
   return (
     <>
       <Card
@@ -28,17 +30,18 @@ function VideoCard({ videoObj, onUpdate }) {
           <p>{videoObj.description}</p>
           <p>Created by:{videoObj.username}</p>
           <hr />
-
           <Link href={`/video/${videoObj.firebaseKey}`} passHref>
-            <Button className="team-view-button">VIEW</Button>
+            <Button className="video-view-button">VIEW</Button>
           </Link>
-
-          <Link href={`/video/edit/${videoObj.firebaseKey}`} passHref>
-            <Button className="team-edit-button">EDIT</Button>
-          </Link>
-          <Button className="team-delete-button" onClick={deleteThisVideo}>
-            DELETE
-          </Button>
+          {videoObj.uid === user.uid
+            ? (
+              <Link href={`/video/edit/${videoObj.firebaseKey}`} passHref>
+                <Button className="video-edit-button">EDIT</Button>
+              </Link>
+            ) : ''}
+          {videoObj.uid === user.uid
+            ? (<Button className="video-delete-button" onClick={deleteThisVideo}>DELETE</Button>
+            ) : ''}
         </Card.Body>
       </Card>
     </>
@@ -55,6 +58,7 @@ VideoCard.propTypes = {
     date_added: PropTypes.string,
     username: PropTypes.string,
     firebaseKey: PropTypes.string,
+    uid: PropTypes.string,
   }).isRequired,
   onUpdate: PropTypes.func.isRequired,
 };
