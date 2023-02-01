@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { Navbar, Container } from 'react-bootstrap';
 import Logo from './Logo';
 import ProfileModal from './ProfileModal';
+import NavOffcanvas from './Offcanvas';
 
 export default function NavBar() {
   return (
@@ -12,7 +13,7 @@ export default function NavBar() {
       <Container>
 
         <div>
-          <h1 className="navbar-text">OffCanvas</h1>
+          <NavOffcanvas />
         </div>
 
         <Link passHref href="/">
