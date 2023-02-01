@@ -1,3 +1,5 @@
+/* eslint-disable jsx-a11y/img-redundant-alt */
+/* eslint-disable @next/next/no-img-element */
 /* eslint-disable react/self-closing-comp */
 /* eslint-disable jsx-a11y/media-has-caption */
 import React from 'react';
@@ -19,7 +21,7 @@ function VideoCard({ videoObj, onUpdate }) {
     <>
       <Card className="video-card">
         <iframe className="card-video" src={`${videoObj.video_url}?modestbranding=1&showinfo=0&mute=1`} title={videoObj.video_title}></iframe>
-        <Card.Body>
+        <Card.Body className="video-card-body">
           <Card.Title className="team-card-title">{videoObj.video_title}</Card.Title>
           <p>{videoObj.description}</p>
           <p>Created by:{videoObj.username}</p>
@@ -27,16 +29,16 @@ function VideoCard({ videoObj, onUpdate }) {
           <p>{videoObj.date_added}</p>
           <hr />
           <Link href={`/video/${videoObj.firebaseKey}`} passHref>
-            <Button className="video-view-button">VIEW</Button>
+            <Button className="video-card-button">VIEW</Button>
           </Link>
           {videoObj.uid === user.uid
             ? (
               <Link href={`/video/edit/${videoObj.firebaseKey}`} passHref>
-                <Button className="video-edit-button">EDIT</Button>
+                <Button className="video-card-button">EDIT</Button>
               </Link>
             ) : ''}
           {videoObj.uid === user.uid
-            ? (<Button className="video-delete-button" onClick={deleteThisVideo}>DELETE</Button>
+            ? (<Button className="video-card-button" onClick={deleteThisVideo}>DELETE</Button>
             ) : ''}
         </Card.Body>
       </Card>
