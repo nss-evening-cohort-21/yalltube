@@ -44,7 +44,7 @@ export default function VideoForm({ obj }) {
           const patchPayload = { firebaseKey: name };
           updateVideo(patchPayload)
             .then(() => {
-              router.push('/videos');
+              router.push('/library');
             });
         });
     }
