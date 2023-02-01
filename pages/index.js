@@ -21,14 +21,11 @@ export default function Home() {
         <title>Home Videos</title>
       </Head>
       <div className="home-content-container">
-        <div>
-          <div className="home-card-container">{homeVideos.map((video) => (
-            <VideoCard key={video.firebaseKey} videoObj={video} onUpdate={displayHomeVideos} />
-          ))}
-          </div>
+        <div className="home-card-container">{homeVideos.map((video) => (
+          <VideoCard key={video.firebaseKey} videoObj={video} onUpdate={displayHomeVideos} />
+        ))}
         </div>
       </div>
-
     </>
   );
 }

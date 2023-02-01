@@ -22,11 +22,11 @@ function VideoCard({ videoObj, onUpdate }) {
       <Card className="video-card">
         <iframe className="card-video" src={`${videoObj.video_url}?modestbranding=1&showinfo=0&mute=1`} title={videoObj.video_title}></iframe>
         <Card.Body className="video-card-body">
-          <Card.Title className="team-card-title">{videoObj.video_title}</Card.Title>
-          <p>{videoObj.description}</p>
-          <p className="card-public">{videoObj.public === true ? 'Public' : 'Private' }</p>
-          <p>Created by:{videoObj.username}</p>
-          <p>{videoObj.date_added}</p>
+          <Card.Title className="video-card-title">{videoObj.video_title}</Card.Title>
+          <div>{videoObj.description}</div>
+          <div className="card-public">{videoObj.public === true ? 'Public' : 'Private' }</div>
+          <div>Created by: {videoObj.username}</div>
+          <div>{videoObj.date_added}</div>
           <hr />
           <Link href={`/video/${videoObj.firebaseKey}`} passHref>
             <Button className="video-card-button">VIEW</Button>
