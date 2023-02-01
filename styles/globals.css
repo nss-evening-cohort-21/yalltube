@@ -20,3 +20,9 @@ a {
 body {
   background-color: #88effd;
 }
+
+.offcanvas-body {
+  background-color: black;
+  display: flex;
+  flex-direction: column;
+}
