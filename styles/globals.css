@@ -28,14 +28,9 @@ body {
   flex-direction: column;
 }
 
-<<<<<<< HEAD
-FloatingLabel label {
-  color: black;
-=======
 .profile-modal,
 .modal-content {
   background-color: #212121;
   color: #f1f1f1;
   border-radius: 20px;
->>>>>>> main
 }
