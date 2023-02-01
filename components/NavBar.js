@@ -1,11 +1,12 @@
 import React from 'react';
 import Link from 'next/link';
 import {
-  Navbar, Container, Form, Nav,
+  Navbar, Container, Nav,
 } from 'react-bootstrap';
 import WhiteLogo from './WhiteLogo';
 import ProfileModal from './ProfileModal';
 import NavOffcanvas from './Offcanvas';
+import SearchBar from './SearchBar';
 
 export default function NavBar() {
   return (
@@ -30,9 +31,7 @@ export default function NavBar() {
         </Link>
         <Container>
           <Nav className="m-auto">
-            <Form>
-              <Form.Control type="text" placeholder="Search" />
-            </Form>
+            <SearchBar />
           </Nav>
         </Container>
         <div style={{
