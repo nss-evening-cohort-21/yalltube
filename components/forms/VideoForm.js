@@ -38,7 +38,7 @@ export default function VideoForm({ obj }) {
       updateVideo(formInput)
         .then(() => router.push(`/video/${obj.firebaseKey}`));
     } else {
-      const payload = { ...formInput, uid: user.uid, date_added: new Date().prototype.toLocaleString() };
+      const payload = { ...formInput, uid: user.uid, date_added: new Date().toLocaleString() };
       createVideo(payload)
         .then(({ name }) => {
           const patchPayload = { firebaseKey: name };
