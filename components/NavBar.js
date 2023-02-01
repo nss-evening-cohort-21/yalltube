@@ -4,6 +4,7 @@ import React from 'react';
 import Link from 'next/link';
 import { Navbar, Container } from 'react-bootstrap';
 import Logo from './Logo';
+import ProfileModal from './ProfileModal';
 import NavOffcanvas from './Offcanvas';
 
 export default function NavBar() {
@@ -27,6 +28,7 @@ export default function NavBar() {
         <div>
           <input type="text" placeholder="Search" />
         </div>
+        <ProfileModal />
 
       </Container>
     </Navbar>
