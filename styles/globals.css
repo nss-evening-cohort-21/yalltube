@@ -19,11 +19,18 @@ a {
 
 body {
   background-color: black;
-  color:white;
+  color: white;
 }
 
 .offcanvas-body {
   background-color: black;
   display: flex;
   flex-direction: column;
+}
+
+.profile-modal,
+.modal-content {
+  background-color: #212121;
+  color: #f1f1f1;
+  border-radius: 20px;
 }
