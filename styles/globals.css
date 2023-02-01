@@ -19,7 +19,7 @@ a {
 
 body {
   background-color: black;
-  color:white;
+  color: white;
 }
 
 .offcanvas-body {
@@ -28,7 +28,9 @@ body {
   flex-direction: column;
 }
 
-.profile-modal {
-  background-color: #212529;
-  color: whitesmoke;
+.profile-modal,
+.modal-content {
+  background-color: #212121;
+  color: #f1f1f1;
+  border-radius: 20px;
 }
