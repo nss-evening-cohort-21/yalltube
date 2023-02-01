@@ -21,3 +21,9 @@ body {
   background-color: black;
   color:white;
 }
+
+.offcanvas-body {
+  background-color: black;
+  display: flex;
+  flex-direction: column;
+}
