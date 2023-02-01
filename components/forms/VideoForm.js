@@ -13,6 +13,7 @@ const initialState = {
   description: '',
   uid: '',
   public: false,
+  username: '',
 };
 
 export default function VideoForm({ obj }) {
@@ -38,7 +39,9 @@ export default function VideoForm({ obj }) {
       updateVideo(formInput)
         .then(() => router.push(`/video/${obj.firebaseKey}`));
     } else {
-      const payload = { ...formInput, uid: user.uid, date_added: new Date().toLocaleString() };
+      const payload = {
+        ...formInput, uid: user.uid, date_added: new Date().toLocaleString(), username: user.displayName,
+      };
       createVideo(payload)
         .then(({ name }) => {
           const patchPayload = { firebaseKey: name };
@@ -121,6 +124,7 @@ VideoForm.propTypes = {
     description: PropTypes.string,
     uid: PropTypes.string,
     public: PropTypes.bool,
+    username: PropTypes.string,
   }),
 };
 
