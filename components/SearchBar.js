@@ -18,8 +18,9 @@ export default function SearchBar() {
   };
   return (
     <Form onSubmit={handleSubmit}>
-      <InputGroup className="mb-3">
+      <InputGroup className="m-auto">
         <FormControl
+          className="form-control"
           placeholder="Search"
           aria-label="Search"
           aria-describedby="basic-addon2"
@@ -27,7 +28,7 @@ export default function SearchBar() {
           value={searchInput}
         />
         <Button variant="outline-secondary" id="button-addon2">
-          Button
+          Search
         </Button>
       </InputGroup>
     </Form>

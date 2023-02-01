@@ -35,8 +35,12 @@ body {
   border-radius: 20px;
 }
 
+.navbar {
+  height: 70px;
+  
+}
+
 .form-control {
-  width: 600px;
   color: #f1f1f1;
   background-color: #212121;
   border-radius: 20px;
@@ -45,4 +49,8 @@ body {
 .form-control:hover, .form-control:focus {
   background-color: #212121;
   color: #f1f1f1;
+}
+
+.m-auto {
+  width: 600px;
 }
