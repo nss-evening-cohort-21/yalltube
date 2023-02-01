@@ -20,7 +20,7 @@ export default function SearchBar() {
     <Form onSubmit={handleSubmit}>
       <InputGroup className="m-auto">
         <FormControl
-          className="form-control"
+          className="search-form-control"
           placeholder="Search"
           aria-label="Search"
           aria-describedby="basic-addon2"

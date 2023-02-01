@@ -40,13 +40,13 @@ body {
   
 }
 
-.form-control {
+.search-form-control {
   color: #f1f1f1;
   background-color: #212121;
   border-radius: 20px;
 }
 
-.form-control:hover, .form-control:focus {
+.search-form-control:hover, .search-form-control:focus {
   background-color: #212121;
   color: #f1f1f1;
 }
