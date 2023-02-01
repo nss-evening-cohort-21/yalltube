@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable react/no-unescaped-entities */
 import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react';
@@ -21,8 +22,12 @@ export default function SearchPage() {
   };
 
   useEffect(() => {
-    getSearchedVideos();
-  });
+    let isCancelled = false;
+    if (!isCancelled) getSearchedVideos();
+    return () => {
+      isCancelled = true;
+    };
+  }, [searchInput]);
   return (
     <>
       <h4>Search for videos containing: "{searchInput}"</h4>
