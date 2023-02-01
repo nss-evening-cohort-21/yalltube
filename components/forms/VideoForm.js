@@ -58,7 +58,7 @@ export default function VideoForm({ obj }) {
       <h1 className="mt-5 mb-3">{obj.firebaseKey ? 'Update' : 'Create'} Video</h1>
 
       {/* VIDEO URL */}
-      <FloatingLabel controlId="floatingInput1" label="Video URL" className="mb-3">
+      <FloatingLabel controlId="floatingInput1" label="Video URL" className="mb-3 text-black">
         <Form.Control
           type="url"
           name="video_url"
@@ -69,7 +69,7 @@ export default function VideoForm({ obj }) {
       </FloatingLabel>
 
       {/* VIDEO TITLE */}
-      <FloatingLabel controlId="floatingInput2" label="Video Title" className="mb-3">
+      <FloatingLabel controlId="floatingInput2" label="Video Title" className="mb-3 text-black">
         <Form.Control
           type="text"
           name="video_title"
@@ -80,7 +80,7 @@ export default function VideoForm({ obj }) {
       </FloatingLabel>
 
       {/* VIDEO DESCRIPTION TEXTAREA */}
-      <FloatingLabel controlId="floatingTextArea" label="Video Description" className="mb-3">
+      <FloatingLabel controlId="floatingTextArea" label="Video Description" className="mb-3 text-black">
         <Form.Control
           type="textarea"
           style={{ height: '100px' }}
