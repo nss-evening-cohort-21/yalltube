@@ -21,7 +21,6 @@ body {
   background-color: black;
   color: white;
 }
-
 .offcanvas-body {
   background-color: black;
   display: flex;
@@ -33,4 +32,25 @@ body {
   background-color: #212121;
   color: #f1f1f1;
   border-radius: 20px;
+}
+.home-content-container{
+  height: 800px;
+  overflow-y: scroll;
+}
+.home-card-container{
+  display:flex;
+  flex-direction: row;
+  flex-wrap:wrap;
+  justify-content:space-evenly;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+.video-card{
+  background-color:black;
+  width:25%;
+  margin:1%;
+}
+.card-video{
+  border-radius:25px;
+  height:200px;
 }

@@ -17,13 +17,8 @@ function VideoCard({ videoObj, onUpdate }) {
   const { user } = useAuth();
   return (
     <>
-      <Card
-        className="team-card"
-        style={{
-          width: '35%', margin: '10px', color: 'white', background: 'black',
-        }}
-      >
-        <iframe src={`${videoObj.video_url}?modestbranding=1&showinfo=0&mute=1`} title={videoObj.video_title} style={{ height: '150%' }}></iframe>
+      <Card className="video-card">
+        <iframe className="card-video" src={`${videoObj.video_url}?modestbranding=1&showinfo=0&mute=1`} title={videoObj.video_title}></iframe>
         <Card.Body>
           <Card.Title className="team-card-title">{videoObj.video_title}</Card.Title>
           <p>{videoObj.description}</p>
