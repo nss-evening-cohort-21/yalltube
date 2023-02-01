@@ -17,19 +17,19 @@ export default function ProfileModal() {
       <Image
         src={user.photoURL}
         alt="Picture of the author"
-        width="50"
-        height="50"
+        width="60"
+        height="60"
         onClick={handleShow}
         roundedCircle
       />
 
       <Modal show={show} onHide={handleClose}>
-        <Modal.Header closeButton>
+        <Modal.Header>
           <Image
             src={user.photoURL}
             alt="Picture of the author"
-            width="50"
-            height="50"
+            width="60"
+            height="60"
             onClick={handleShow}
             roundedCircle
           />
