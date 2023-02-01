@@ -24,8 +24,8 @@ function VideoCard({ videoObj, onUpdate }) {
         <Card.Body className="video-card-body">
           <Card.Title className="team-card-title">{videoObj.video_title}</Card.Title>
           <p>{videoObj.description}</p>
-          <p>Created by:{videoObj.username}</p>
           <p className="card-public">{videoObj.public === true ? 'Public' : 'Private' }</p>
+          <p>Created by:{videoObj.username}</p>
           <p>{videoObj.date_added}</p>
           <hr />
           <Link href={`/video/${videoObj.firebaseKey}`} passHref>

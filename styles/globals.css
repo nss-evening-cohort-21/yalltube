@@ -49,6 +49,7 @@ body {
   width:25%;
   margin:1%;
   font-size:12px;
+  text-align:center;
 }
 .card-video{
   border-radius:25px;
@@ -64,5 +65,5 @@ body {
   background-color:grey;
   color:white;
   border:2px solid black;
-  transition: 0.9s;
+  transition: 0.8s;
 }
