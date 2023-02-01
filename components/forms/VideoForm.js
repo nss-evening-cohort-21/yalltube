@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { useRouter } from 'next/router';
+import { Button, FloatingLabel, Form } from 'react-bootstrap';
 import { useAuth } from '../../utils/context/authContext';
 import { createVideo, updateVideo } from '../../API/videoData';
 
@@ -50,7 +51,63 @@ export default function VideoForm({ obj }) {
   };
 
   return (
-    <div>VideoForm</div>
+    <Form onSubmit={handleSubmit}>
+      <h1 className="mt-5 mb-3">{obj.firebaseKey ? 'Update' : 'Create'} Video</h1>
+
+      {/* VIDEO URL */}
+      <FloatingLabel controlId="floatingInput1" label="Video URL" className="mb-3">
+        <Form.Control
+          type="url"
+          name="video_url"
+          value={formInput.video_url}
+          onChange={handleChange}
+          required
+        />
+      </FloatingLabel>
+
+      {/* VIDEO TITLE */}
+      <FloatingLabel controlId="floatingInput2" label="Video Title" className="mb-3">
+        <Form.Control
+          type="text"
+          name="video_title"
+          value={formInput.video_title}
+          onChange={handleChange}
+          required
+        />
+      </FloatingLabel>
+
+      {/* VIDEO DESCRIPTION TEXTAREA */}
+      <FloatingLabel controlId="floatingTextArea" label="Video Description" className="mb-3">
+        <Form.Control
+          type="textarea"
+          style={{ height: '100px' }}
+          name="description"
+          value={formInput.description}
+          onChange={handleChange}
+          required
+        />
+      </FloatingLabel>
+
+      {/* VIDEO DESCRIPTION TEXTAREA */}
+      <Form.Check
+        className="mb-3"
+        type="switch"
+        id="public"
+        name="public"
+        label="Make public?"
+        checked={formInput.public}
+        onChange={(e) => {
+          setFormInput((prevState) => ({
+            ...prevState,
+            public: e.target.checked,
+          }));
+        }}
+      />
+
+      {/* SUBMIT BUTTON  */}
+      <Button type="submit">{obj.firebaseKey ? 'Update' : 'Create'} Book</Button>
+
+    </Form>
   );
 }
 
