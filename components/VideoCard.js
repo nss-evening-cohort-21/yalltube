@@ -15,7 +15,6 @@ function VideoCard({ videoObj, onUpdate }) {
     }
   };
   const { user } = useAuth();
-  console.warn(user.uid);
   return (
     <>
       <Card
