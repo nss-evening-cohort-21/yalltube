@@ -31,6 +31,11 @@ export default function NavOffcanvas() {
               &#128214; Library
             </Button>
           </Link>
+          <Link href="/video/new" passHref>
+            <Button variant="danger" type="button" size="lg" className="copy-btn m-2" onClick={handleClose}>
+              &#128249; Add a Video
+            </Button>
+          </Link>
           <Link href="/" passHref>
             <Button variant="danger" type="button" size="lg" className="copy-btn m-2" onClick={handleClose}>
               &#127911; Playlists
