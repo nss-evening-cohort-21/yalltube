@@ -6,7 +6,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
-import Link from 'next/link';
+import Dropdown from 'react-bootstrap/Dropdown';
 import { useAuth } from '../utils/context/authContext';
 import { deleteVideo } from '../API/videoData';
 
@@ -28,18 +28,22 @@ function VideoCard({ videoObj, onUpdate }) {
           <div>Created by: {videoObj.username}</div>
           <div>{videoObj.date_added}</div>
           <hr />
-          <Link href={`/video/${videoObj.firebaseKey}`} passHref>
-            <Button className="video-card-button">VIEW</Button>
-          </Link>
-          {videoObj.uid === user.uid
-            ? (
-              <Link href={`/video/edit/${videoObj.firebaseKey}`} passHref>
-                <Button className="video-card-button">EDIT</Button>
-              </Link>
-            ) : ''}
-          {videoObj.uid === user.uid
-            ? (<Button className="video-card-button" onClick={deleteThisVideo}>DELETE</Button>
-            ) : ''}
+          <Dropdown>
+            <Dropdown.Toggle variant="success" id="dropdown-basic">
+              Options
+            </Dropdown.Toggle>
+            <Dropdown.Menu>
+              <Dropdown.Item href={`/video/${videoObj.firebaseKey}`}>View</Dropdown.Item>
+
+              {videoObj.uid === user.uid
+                ? (
+                  <Dropdown.Item href={`/video/edit/${videoObj.firebaseKey}`}>Edit</Dropdown.Item>
+                ) : ''}
+              {videoObj.uid === user.uid
+                ? (<Button className="video-card-button" onClick={deleteThisVideo}>DELETE</Button>
+                ) : ''}
+            </Dropdown.Menu>
+          </Dropdown>
         </Card.Body>
       </Card>
     </>
