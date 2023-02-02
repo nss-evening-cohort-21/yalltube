@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import Button from 'react-bootstrap/Button';
 import Offcanvas from 'react-bootstrap/Offcanvas';
-import Logo from './Logo';
+import BlackLogo from './BlackLogo';
 
 export default function NavOffcanvas() {
   const [show, setShow] = useState(false);
@@ -18,7 +18,7 @@ export default function NavOffcanvas() {
 
       <Offcanvas show={show} onHide={handleClose}>
         <Offcanvas.Header closeButton>
-          <Offcanvas.Title><Logo /></Offcanvas.Title>
+          <Offcanvas.Title><BlackLogo /></Offcanvas.Title>
         </Offcanvas.Header>
         <Offcanvas.Body>
           <Link href="/" passHref>
