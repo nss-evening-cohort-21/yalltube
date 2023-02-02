@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unknown-property */
 /* eslint-disable jsx-a11y/img-redundant-alt */
 /* eslint-disable @next/next/no-img-element */
 /* eslint-disable react/self-closing-comp */
@@ -19,7 +20,9 @@ function VideoCard({ videoObj, onUpdate }) {
   return (
     <>
       <Card className="video-card">
-        <iframe className="card-video" src={`${videoObj.video_url}?modestbranding=1&showinfo=0&mute=1`} title={videoObj.video_title}></iframe>
+        <div className="card-video-container">
+          <iframe className="card-video" src={`${videoObj.video_url}?modestbranding=1&showinfo=0&mute=1`} title={videoObj.video_title}></iframe>
+        </div>
         <Card.Body className="video-card-body">
           <Card.Title className="video-card-title">{videoObj.video_title}</Card.Title>
 
