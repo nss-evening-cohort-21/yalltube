@@ -31,7 +31,6 @@ function VideoCard({ videoObj, onUpdate }) {
               <div className="card-public">{videoObj.public === true ? 'Public' : 'Private' }</div>
             ) : ''}
           <div>Created by: {videoObj.username}</div>
-          <div>{videoObj.date_added}</div>
           <Dropdown>
             <Dropdown.Toggle className="video-card-dropdown">
               Options
