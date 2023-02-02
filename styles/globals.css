@@ -55,15 +55,21 @@ body {
   border-radius:25px;
   height:200px;
 }
-.video-card-button{
-  background-color:white;
-  color:black;
-  font-size:13px;
-  border:2px solid white;
+.video-card-dropdown{
+  background-color:black;
+  color:white;
+  border:solid black 2px;
+  font-size:12px;
 }
-.video-card-button:hover{
+.video-card-dropdown:focus{
   background-color:grey;
   color:white;
-  border:2px solid white;
-  transition: 0.8s;
+  border:solid black 2px;
+  transition: .9s;
+}
+.video-card-dropdown:not(:focus){
+  background-color:black;
+  color:white;
+  border:solid black 2px;
+  transition: .9s;
 }

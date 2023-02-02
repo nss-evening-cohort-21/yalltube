@@ -26,9 +26,8 @@ function VideoCard({ videoObj, onUpdate }) {
           <div className="card-public">{videoObj.public === true ? 'Public' : 'Private' }</div>
           <div>Created by: {videoObj.username}</div>
           <div>{videoObj.date_added}</div>
-          <hr />
           <Dropdown>
-            <Dropdown.Toggle variant="success" id="dropdown-basic">
+            <Dropdown.Toggle className="video-card-dropdown">
               Options
             </Dropdown.Toggle>
             <Dropdown.Menu>
