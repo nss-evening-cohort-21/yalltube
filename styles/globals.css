@@ -21,7 +21,6 @@ body {
   background-color: black;
   color: white;
 }
-
 .offcanvas-body {
   background-color: black;
   display: flex;
@@ -33,6 +32,53 @@ body {
   background-color: #212121;
   color: #f1f1f1;
   border-radius: 20px;
+}
+
+.home-content-container{
+  height: 90%;
+  position:fixed;
+  overflow-y: scroll;
+}
+
+.home-card-container{
+  display:flex;
+  flex-direction: row;
+  flex-wrap:wrap;
+  justify-content:space-evenly;
+}
+
+.video-card{
+  background-color:black;
+  width:25%;
+  margin:1%;
+  font-size:13px;
+  text-align:center;
+}
+
+.card-video{
+  border-radius:25px;
+  height:200px;
+}
+
+.video-card-dropdown{
+  background-color:black;
+  color:white;
+  border:solid black 2px;
+  font-size:12px;
+}
+
+.video-card-dropdown:focus{
+  background-color:grey;
+  color:white;
+  border:solid black 2px;
+  transition: .9s;
+}
+
+.video-card-dropdown:not(:focus){
+  background-color:black;
+  color:white;
+  border:solid black 2px;
+  transition: .9s;
 }
 
 .navbar {

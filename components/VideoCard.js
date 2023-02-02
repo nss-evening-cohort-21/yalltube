@@ -1,12 +1,13 @@
+/* eslint-disable jsx-a11y/img-redundant-alt */
+/* eslint-disable @next/next/no-img-element */
 /* eslint-disable react/self-closing-comp */
 /* eslint-disable jsx-a11y/media-has-caption */
 import React from 'react';
 import PropTypes from 'prop-types';
-import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
-import Link from 'next/link';
-import deleteVideo from '../API/videoData';
+import Dropdown from 'react-bootstrap/Dropdown';
 import { useAuth } from '../utils/context/authContext';
+import { deleteVideo } from '../API/videoData';
 
 function VideoCard({ videoObj, onUpdate }) {
   const deleteThisVideo = () => {
@@ -17,31 +18,29 @@ function VideoCard({ videoObj, onUpdate }) {
   const { user } = useAuth();
   return (
     <>
-      <Card
-        className="team-card"
-        style={{
-          width: '35%', margin: '10px', color: 'white', background: 'black',
-        }}
-      >
-        <iframe src={`${videoObj.video_url}?modestbranding=1&showinfo=0&mute=1`} title={videoObj.video_title} style={{ height: '150%' }}></iframe>
-        <Card.Body>
-          <Card.Title className="team-card-title">{videoObj.video_title}</Card.Title>
-          <p>{videoObj.description}</p>
-          <p>Created by:{videoObj.username}</p>
-          <p className="card-public">{videoObj.public === true ? 'Public' : 'Private' }</p>
-          <hr />
-          <Link href={`/video/${videoObj.firebaseKey}`} passHref>
-            <Button className="video-view-button">VIEW</Button>
-          </Link>
-          {videoObj.uid === user.uid
-            ? (
-              <Link href={`/video/edit/${videoObj.firebaseKey}`} passHref>
-                <Button className="video-edit-button">EDIT</Button>
-              </Link>
-            ) : ''}
-          {videoObj.uid === user.uid
-            ? (<Button className="video-delete-button" onClick={deleteThisVideo}>DELETE</Button>
-            ) : ''}
+      <Card className="video-card">
+        <iframe className="card-video" src={`${videoObj.video_url}?modestbranding=1&showinfo=0&mute=1`} title={videoObj.video_title}></iframe>
+        <Card.Body className="video-card-body">
+          <Card.Title className="video-card-title">{videoObj.video_title}</Card.Title>
+          <div>{videoObj.description}</div>
+          <div className="card-public">{videoObj.public === true ? 'Public' : 'Private' }</div>
+          <div>Created by: {videoObj.username}</div>
+          <div>{videoObj.date_added}</div>
+          <Dropdown>
+            <Dropdown.Toggle className="video-card-dropdown">
+              Options
+            </Dropdown.Toggle>
+            <Dropdown.Menu>
+              <Dropdown.Item href={`/video/${videoObj.firebaseKey}`}>View</Dropdown.Item>
+              {videoObj.uid === user.uid
+                ? (
+                  <Dropdown.Item href={`/video/edit/${videoObj.firebaseKey}`}>Edit</Dropdown.Item>
+                ) : ''}
+              {videoObj.uid === user.uid
+                ? (<Dropdown.Item onClick={deleteThisVideo}>Delete</Dropdown.Item>
+                ) : ''}
+            </Dropdown.Menu>
+          </Dropdown>
         </Card.Body>
       </Card>
     </>
