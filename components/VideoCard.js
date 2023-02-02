@@ -4,7 +4,6 @@
 /* eslint-disable jsx-a11y/media-has-caption */
 import React from 'react';
 import PropTypes from 'prop-types';
-import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import Dropdown from 'react-bootstrap/Dropdown';
 import { useAuth } from '../utils/context/authContext';
@@ -34,13 +33,12 @@ function VideoCard({ videoObj, onUpdate }) {
             </Dropdown.Toggle>
             <Dropdown.Menu>
               <Dropdown.Item href={`/video/${videoObj.firebaseKey}`}>View</Dropdown.Item>
-
               {videoObj.uid === user.uid
                 ? (
                   <Dropdown.Item href={`/video/edit/${videoObj.firebaseKey}`}>Edit</Dropdown.Item>
                 ) : ''}
               {videoObj.uid === user.uid
-                ? (<Button className="video-card-button" onClick={deleteThisVideo}>DELETE</Button>
+                ? (<Dropdown.Item onClick={deleteThisVideo}>Delete</Dropdown.Item>
                 ) : ''}
             </Dropdown.Menu>
           </Dropdown>
