@@ -22,7 +22,7 @@ body {
   color: white;
 }
 .offcanvas-body {
-  background-color: #212121;
+  background-color: black;
   display: flex;
   flex-direction: column;
 }
@@ -54,15 +54,20 @@ body {
   font-size:13px;
   text-align:center;
 }
+
 .card-video-container{
   height:275px;
   width:100%;
 }
+
 .card-video{
   border-radius:25px;
   height:100%;
   width:100%;
   background-color:#212121;
+}
+.card-public{
+  font-size:12px;
 }
 
 .video-card-dropdown{

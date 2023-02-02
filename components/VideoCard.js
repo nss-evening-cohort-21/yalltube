@@ -24,12 +24,11 @@ function VideoCard({ videoObj, onUpdate }) {
           <iframe className="card-video" src={`${videoObj.video_url}?modestbranding=1&showinfo=0&mute=1`} title={videoObj.video_title}></iframe>
         </div>
         <Card.Body className="video-card-body">
-          <Card.Title className="video-card-title">{videoObj.video_title}</Card.Title>
-
-          {user.uid === videoObj.uid
+          <Card.Title className="video-card-title">{videoObj.video_title} {user.uid === videoObj.uid
             ? (
-              <div className="card-public">{videoObj.public === true ? 'Public' : 'Private' }</div>
+              <div className="card-public">{videoObj.public === true ? '(Public)' : '(Private)' }</div>
             ) : ''}
+          </Card.Title>
           <div>Created by: {videoObj.username}</div>
           <Dropdown>
             <Dropdown.Toggle className="video-card-dropdown">
