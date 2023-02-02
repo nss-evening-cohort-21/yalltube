@@ -22,7 +22,7 @@ body {
   color: white;
 }
 .offcanvas-body {
-  background-color: black;
+  background-color: #212121;
   display: flex;
   flex-direction: column;
 }
@@ -55,7 +55,7 @@ body {
   text-align:center;
 }
 .card-video-container{
-  height:200px;
+  height:275px;
   width:100%;
 }
 .card-video{
