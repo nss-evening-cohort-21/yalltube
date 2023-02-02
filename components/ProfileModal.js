@@ -5,7 +5,6 @@ import {
 import Link from 'next/link';
 import { useAuth } from '../utils/context/authContext';
 import { signOut } from '../utils/auth';
-// import '../styles/profile-modal.css';
 
 export default function ProfileModal() {
   const [show, setShow] = useState(false);
@@ -55,7 +54,7 @@ export default function ProfileModal() {
             </Link>
           </Modal.Body>
           <Modal.Footer>
-            Last Login Date {new Date(user.metadata.lastSignInTime).toLocaleDateString()};
+            Last Login Date {new Date(user.metadata.lastSignInTime).toLocaleDateString()}
           </Modal.Footer>
         </ModalBody>
       </Modal>
