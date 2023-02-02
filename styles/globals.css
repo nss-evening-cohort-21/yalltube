@@ -28,6 +28,10 @@ body {
   flex-direction: column;
 }
 
+.offcanvas-header {
+  background-color: black;
+}
+
 .profile-modal,
 .modal-content {
   background-color: #212121;
