@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import {
-  Card, Image, Modal, ModalBody, ModalTitle,
+  Card, Image, Modal, ModalBody,
 } from 'react-bootstrap';
 import Link from 'next/link';
 import { useAuth } from '../utils/context/authContext';
@@ -36,21 +36,20 @@ export default function ProfileModal() {
               roundedCircle
             />
             <div>
-              <ModalTitle>{user.displayName}</ModalTitle>
-              <ModalTitle>{user.email}</ModalTitle>
+              <h6>{user.displayName}</h6>
+              <h6>{user.email}</h6>
             </div>
           </Modal.Header>
-          <Modal.Body>
+          <Modal.Body className="d-flex flex-column">
             <Link passHref href="/library">
-              <Card.Link href="" onClick={handleClose}>
+              <Card.Text onClick={handleClose} className="modal-link">
                 Your channel
-              </Card.Link>
+              </Card.Text>
             </Link>
-            <br />
             <Link passHref href="/">
-              <Card.Link href="" onClick={signOut}>
+              <Card.Text onClick={signOut} className="modal-link">
                 Sign out
-              </Card.Link>
+              </Card.Text>
             </Link>
           </Modal.Body>
           <Modal.Footer>

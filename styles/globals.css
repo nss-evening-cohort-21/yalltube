@@ -32,7 +32,8 @@ body {
   background-color: #212121;
 }
 
-.offcanvas-btn, .offcanvas-btn:hover {
+.offcanvas-btn,
+.offcanvas-btn:hover {
   background-color: #FF0000;
 }
 
@@ -51,11 +52,12 @@ body {
   background-color: #212121;
   color: #f1f1f1;
   border-radius: 20px;
+  padding: 0;
 }
 
-.home-content-container{
+.home-content-container {
   height: 90%;
-  position:fixed;
+  position: fixed;
   overflow-y: scroll;
 }
 
@@ -63,8 +65,8 @@ body {
   margin-top: 5%;
   display: flex;
   flex-direction: row;
-  flex-wrap:wrap;
-  justify-content:space-evenly;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
 }
 
 .video-card {
@@ -160,4 +162,27 @@ body {
 
 .video-page-buttons {
   margin: 10px 20px 0px 0px;
+}
+
+.navbar {
+  overflow: hidden;
+  background-color: #212121;
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+  height: 70px;
+}
+
+.modal-body {
+  padding: 0;
+}
+
+.modal-link {
+  padding: 20px;
+  margin: 0;
+}
+
+.modal-link:hover {
+  background-color: rgb(61, 60, 60);
 }
