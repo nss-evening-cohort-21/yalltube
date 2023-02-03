@@ -1,5 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable react/no-unescaped-entities */
+import Head from 'next/head';
 import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react';
 import { getHomeVideos } from '../../API/videoData';
@@ -30,6 +31,11 @@ export default function SearchPage() {
   }, [searchInput]);
   return (
     <>
+      <Head>
+        <title>
+          Search by "{searchInput}"
+        </title>
+      </Head>
       <h4>Search for videos containing: "{searchInput}"</h4>
       <div className="d-flex flex-wrap">
         {videos.map((item) => <VideoCard key={item.firebaseKey} videoObj={item} onUpdate={getSearchedVideos} />)}

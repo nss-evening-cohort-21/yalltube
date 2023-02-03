@@ -18,9 +18,10 @@ a {
 }
 
 body {
-  background-color:#212121;
+  background-color: #212121;
   color: white;
 }
+
 .offcanvas-body {
   background-color: black;
   display: flex;
@@ -34,69 +35,72 @@ body {
   border-radius: 20px;
 }
 
-.home-content-container{
-  height: 90%;
-  position:fixed;
-  overflow-y: scroll;
-}
-
-.home-card-container{
-  display:flex;
-  flex-direction: row;
-  flex-wrap:wrap;
-  justify-content:space-evenly;
-}
-
-.video-card{
-  background-color:#212121;
-  width:25%;
-  margin:1%;
-  font-size:13px;
-  text-align:center;
-}
-.video-card-title{
-  font-size:16px;
-}
-
-.card-video-container{
-  height:275px;
-  width:100%;
-}
-
-.card-video{
-  border-radius:25px;
-  height:100%;
-  width:100%;
-  background-color:#212121;
-}
-.card-public{
-  font-size:12px;
-}
-
-.video-card-dropdown{
-  background-color:#212121;
-  color:white;
-  border:solid #212121 2px;
-  font-size:12px;
-}
-
-.video-card-dropdown:focus{
-  background-color:grey;
-  color:white;
-  border:solid #212121 2px;
-  transition: .9s;
-}
-
-.video-card-dropdown:not(:focus){
-  background-color:#212121;
-  color:white;
-  border:solid #212121 2px;
-  transition: .9s;
-}
-
 .navbar {
+  overflow: hidden;
+  background-color: #333;
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: 1;
   height: 70px;
-  
+}
+
+.home-card-container {
+  margin-top: 5%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.video-card {
+  background-color: #212121;
+  width: 25%;
+  margin: 1%;
+  font-size: 13px;
+  text-align: center;
+  border: none;
+}
+
+.video-card-title {
+  font-size: 16px;
+}
+
+.card-video-container {
+  height: 275px;
+  width: 100%;
+}
+
+.card-video {
+  border-radius: 25px;
+  height: 100%;
+  width: 100%;
+  background-color: #212121;
+}
+
+.card-public {
+  font-size: 12px;
+}
+
+.video-card-dropdown {
+  background-color: #212121;
+  color: white;
+  border: solid #212121 2px;
+  font-size: 12px;
+}
+
+.video-card-dropdown:focus {
+  background-color: grey;
+  color: white;
+  border: solid #212121 2px;
+  transition: .9s;
+}
+
+.video-card-dropdown:not(:focus) {
+  background-color: #212121;
+  color: white;
+  border: solid #212121 2px;
+  transition: .9s;
 }
 
 .search-form-control {
@@ -105,7 +109,8 @@ body {
   border-radius: 20px;
 }
 
-.search-form-control:hover, .search-form-control:focus {
+.search-form-control:hover,
+.search-form-control:focus {
   background-color: #212121;
   color: #f1f1f1;
 }
