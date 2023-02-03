@@ -173,3 +173,16 @@ body {
   z-index: 1;
   height: 70px;
 }
+
+.modal-body {
+  padding: 0;
+}
+
+.modal-link {
+  padding: 20px;
+  margin: 0;
+}
+
+.modal-link:hover {
+  background-color: rgb(61, 60, 60);
+}
