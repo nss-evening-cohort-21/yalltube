@@ -17,7 +17,7 @@ export default function ProfileModal() {
     <>
       <Image
         src={user.photoURL}
-        alt="Picture of the author"
+        alt="Picture of the user"
         width="60"
         height="60"
         onClick={handleShow}
@@ -29,7 +29,7 @@ export default function ProfileModal() {
           <Modal.Header>
             <Image
               src={user.photoURL}
-              alt="Picture of the author"
+              alt="Picture of the user"
               width="60"
               height="60"
               onClick={handleShow}
