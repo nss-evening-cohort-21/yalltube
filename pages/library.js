@@ -1,7 +1,31 @@
-import React from 'react';
+import Head from 'next/head';
+import React, { useEffect, useState } from 'react';
+import { getUserVideos } from '../API/videoData';
+import VideoCard from '../components/VideoCard';
+import { useAuth } from '../utils/context/authContext';
 
-export default function LibraryPage() {
+export default function Home() {
+  const [libraryVideos, setLibraryVideos] = useState([]);
+  const { user } = useAuth();
+  const displayUserVideos = () => {
+    getUserVideos(user.uid).then(setLibraryVideos);
+  };
+
+  useEffect(() => {
+    getUserVideos(user.uid).then(setLibraryVideos);
+  }, [user]);
+
   return (
-    <h1>LibraryPage</h1>
+    <>
+      <Head>
+        <title>Home Videos</title>
+      </Head>
+      <div className="home-content-container">
+        <div className="home-card-container">{libraryVideos.map((video) => (
+          <VideoCard key={video.firebaseKey} videoObj={video} onUpdate={displayUserVideos} />
+        ))}
+        </div>
+      </div>
+    </>
   );
 }
