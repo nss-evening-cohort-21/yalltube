@@ -32,7 +32,8 @@ body {
   background-color: #212121;
 }
 
-.offcanvas-btn, .offcanvas-btn:hover {
+.offcanvas-btn,
+.offcanvas-btn:hover {
   background-color: #FF0000;
 }
 
@@ -147,5 +148,5 @@ body {
 }
 
 .modal-link:hover {
-  background-color: #4d4e4e;
+  background-color: #3e3e3e;
 }
