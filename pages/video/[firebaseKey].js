@@ -15,19 +15,32 @@ export default function ViewVideo() {
 
   return (
     <>
-      <div className="embed-responsive embed-responsive-16by9">
-        <iframe title={videoDetails.video_title} className="embed-responsive-item" src={videoDetails.video_url} width="100%" height="100%" allowfullscreen />
+      <div className="video-page-container">
+        <div className="video-container">
+          <iframe
+            width="100%"
+            height="100%"
+            title={videoDetails.video_title}
+            className="responsive-iframe"
+            src={videoDetails.video_url}
+            allowfullscreen=""
+            style={{
+              position: 'absolute',
+              top: '0',
+              left: '0',
+            }}
+          />
+        </div>
+        <div className="video-page-details">
+          <h2>{videoDetails.video_title}</h2>
+          <h6>Added by: {videoDetails.username} <br />
+            {videoDetails.date_added}
+          </h6>
+          <p>{videoDetails.description}</p>
+          <Button className="video-page-buttons">Edit</Button>
+          <Button className="video-page-buttons">Delete</Button>
+        </div>
       </div>
-      <div className="text-white ms-5 details">
-        <h4>
-          {videoDetails.title} Video added by <br />
-          {videoDetails.username}
-        </h4>
-        <p>{videoDetails.description}</p>
-        <Button>Edit</Button>
-        <Button>Delete</Button>
-      </div>
-
     </>
   );
 }
