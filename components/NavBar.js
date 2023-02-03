@@ -11,7 +11,7 @@ import SearchBar from './SearchBar';
 export default function NavBar() {
   return (
     <>
-      <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" className="navbar">
+      <Navbar collapseOnSelect expand="lg" className="navbar">
         <div style={{
           padding: '0px 0px 0px 20px',
         }}

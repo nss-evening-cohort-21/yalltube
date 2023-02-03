@@ -4,14 +4,14 @@ import { Button } from 'react-bootstrap';
 import { getSingleVideo, deleteVideo } from '../../API/videoData';
 import { useAuth } from '../../utils/context/authContext';
 
-export default function ViewVideo(onUpdate) {
+export default function ViewVideo() {
   const [videoDetails, setVideoDetails] = useState([]);
   const router = useRouter();
   const { user } = useAuth();
 
   const deleteThisVideo = () => {
     if (window.confirm(`Delete ${videoDetails.video_title}?`)) {
-      deleteVideo(videoDetails.firebaseKey).then(() => onUpdate());
+      deleteVideo(videoDetails.firebaseKey).then(() => router.push('/'));
     }
   };
 

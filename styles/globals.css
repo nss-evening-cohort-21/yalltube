@@ -39,6 +39,7 @@ body {
 .hamburger-btn {
   border: none;
   font-size: 30px;
+  background-color: #212121;
 }
 
 .hamburger-btn:hover {
