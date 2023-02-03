@@ -28,7 +28,20 @@ body {
   flex-direction: column;
 }
 
-.offcanvas-header {
+.offcanvas-title {
+  background-color: #212121;
+}
+
+.offcanvas-btn, .offcanvas-btn:hover {
+  background-color: #FF0000;
+}
+
+.hamburger-btn {
+  border: none;
+  font-size: 30px;
+}
+
+.hamburger-btn:hover {
   background-color: #212121;
 }
 
