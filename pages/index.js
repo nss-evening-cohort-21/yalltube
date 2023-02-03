@@ -20,9 +20,11 @@ export default function Home() {
       <Head>
         <title>Home Videos</title>
       </Head>
-      <div className="home-card-container">{homeVideos.map((video) => (
-        <VideoCard key={video.firebaseKey} videoObj={video} onUpdate={displayHomeVideos} />
-      ))}
+      <div className="home-content-container">
+        <div className="home-card-container">{homeVideos.map((video) => (
+          <VideoCard key={video.firebaseKey} videoObj={video} onUpdate={displayHomeVideos} />
+        ))}
+        </div>
       </div>
     </>
   );
