@@ -40,17 +40,17 @@ export default function ProfileModal() {
               <ModalTitle>{user.email}</ModalTitle>
             </div>
           </Modal.Header>
-          <Modal.Body>
+          <Modal.Body className="d-flex flex-column">
             <Link passHref href="/library">
-              <Card.Link href="" onClick={handleClose}>
+              <Card.Text onClick={handleClose} className="modal-link">
                 Your channel
-              </Card.Link>
+              </Card.Text>
             </Link>
             <br />
             <Link passHref href="/">
-              <Card.Link href="" onClick={signOut}>
+              <Card.Text onClick={signOut} className="modal-link">
                 Sign out
-              </Card.Link>
+              </Card.Text>
             </Link>
           </Modal.Body>
           <Modal.Footer>

@@ -33,6 +33,7 @@ body {
   background-color: #212121;
   color: #f1f1f1;
   border-radius: 20px;
+  padding: 0;
 }
 
 .navbar {
@@ -117,4 +118,17 @@ body {
 
 .m-auto {
   width: 600px;
+}
+
+.modal-body {
+  padding: 0;
+}
+
+.modal-link {
+  padding: 20px;
+  margin: 0;
+}
+
+.modal-link:hover {
+  background-color: #4d4e4e;
 }
