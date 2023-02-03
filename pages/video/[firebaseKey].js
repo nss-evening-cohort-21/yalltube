@@ -1,11 +1,19 @@
 import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import { Button } from 'react-bootstrap';
-import { getSingleVideo } from '../../API/videoData';
+import { getSingleVideo, deleteVideo } from '../../API/videoData';
+import { useAuth } from '../../utils/context/authContext';
 
-export default function ViewVideo() {
+export default function ViewVideo(onUpdate) {
   const [videoDetails, setVideoDetails] = useState([]);
   const router = useRouter();
+  const { user } = useAuth();
+
+  const deleteThisVideo = () => {
+    if (window.confirm(`Delete ${videoDetails.video_title}?`)) {
+      deleteVideo(videoDetails.firebaseKey).then(() => onUpdate());
+    }
+  };
 
   const { firebaseKey } = router.query;
 
@@ -37,8 +45,14 @@ export default function ViewVideo() {
             {videoDetails.date_added}
           </h6>
           <p>{videoDetails.description}</p>
-          <Button className="video-page-buttons">Edit</Button>
-          <Button className="video-page-buttons">Delete</Button>
+          <div className="button-container">
+            {videoDetails.uid === user.uid ? (
+              <Button className="video-page-buttons" href={`/video/edit/${videoDetails.firebaseKey}`}>Edit</Button>
+            ) : ''}
+            {videoDetails.uid === user.uid ? (
+              <Button className="video-page-buttons" onClick={deleteThisVideo}>Delete</Button>
+            ) : ''}
+          </div>
         </div>
       </div>
     </>
