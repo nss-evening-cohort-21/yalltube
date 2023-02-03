@@ -18,7 +18,7 @@ a {
 }
 
 body {
-  background-color: black;
+  background-color:#212121;
   color: white;
 }
 .offcanvas-body {
@@ -48,36 +48,49 @@ body {
 }
 
 .video-card{
-  background-color:black;
+  background-color:#212121;
   width:25%;
   margin:1%;
   font-size:13px;
   text-align:center;
 }
+.video-card-title{
+  font-size:16px;
+}
+
+.card-video-container{
+  height:275px;
+  width:100%;
+}
 
 .card-video{
   border-radius:25px;
-  height:200px;
+  height:100%;
+  width:100%;
+  background-color:#212121;
+}
+.card-public{
+  font-size:12px;
 }
 
 .video-card-dropdown{
-  background-color:black;
+  background-color:#212121;
   color:white;
-  border:solid black 2px;
+  border:solid #212121 2px;
   font-size:12px;
 }
 
 .video-card-dropdown:focus{
   background-color:grey;
   color:white;
-  border:solid black 2px;
+  border:solid #212121 2px;
   transition: .9s;
 }
 
 .video-card-dropdown:not(:focus){
-  background-color:black;
+  background-color:#212121;
   color:white;
-  border:solid black 2px;
+  border:solid #212121 2px;
   transition: .9s;
 }
 
