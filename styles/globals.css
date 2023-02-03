@@ -23,9 +23,26 @@ body {
 }
 
 .offcanvas-body {
-  background-color: black;
+  background-color: #212121;
   display: flex;
   flex-direction: column;
+}
+
+.offcanvas-title {
+  background-color: #212121;
+}
+
+.offcanvas-btn, .offcanvas-btn:hover {
+  background-color: #FF0000;
+}
+
+.hamburger-btn {
+  border: none;
+  font-size: 30px;
+}
+
+.hamburger-btn:hover {
+  background-color: #212121;
 }
 
 .profile-modal,
