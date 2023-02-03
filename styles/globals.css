@@ -38,14 +38,14 @@ body {
 .navbar {
   overflow: hidden;
   background-color: #333;
-  position: fixed;
+  position: sticky;
   top: 0;
   width: 100%;
   z-index: 1;
 }
 
 .home-card-container {
-  margin-top: 10%;
+  margin-top: 5%;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
