@@ -191,15 +191,8 @@ body {
   color: white;
 }
 
-.edit-video-btn {
-  background-color: #3EA6FF;
-  border-color: #3EA6FF;
-  color: black;
-}
-
-.delete-video-btn {
-  background-color: #FF0000;
-  border-color: #FF0000;
+.view-page-icon {
+  margin: 20px 0px;
 }
 
 .navbar {
@@ -225,6 +218,13 @@ body {
   background-color: rgb(61, 60, 60);
 }
 
-.view-page-icon {
-  margin: 20px 0px;
+.blue-btn, .blue-btn:hover {
+  background-color: #3ea6ff;
+  border-color:#3ea5ffee;
+  color: black;
+}
+
+.red-btn, .red-btn:hover {
+  background-color: #FF0000;
+  border-color: #ff0000d3;
 }
