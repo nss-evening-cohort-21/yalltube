@@ -185,6 +185,23 @@ body {
   margin: 10px 20px 0px 0px;
 }
 
+.video-page-buttons:hover {
+  background-color: grey;
+  border-color: grey;
+  color: white;
+}
+
+.edit-video-btn {
+  background-color: #3EA6FF;
+  border-color: #3EA6FF;
+  color: black;
+}
+
+.delete-video-btn {
+  background-color: #FF0000;
+  border-color: #FF0000;
+}
+
 .navbar {
   overflow: hidden;
   background-color: #212121;
@@ -206,4 +223,8 @@ body {
 
 .modal-link:hover {
   background-color: rgb(61, 60, 60);
+}
+
+.view-page-icon {
+  margin: 20px 0px;
 }
