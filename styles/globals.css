@@ -122,13 +122,34 @@ body {
 .search-form-control {
   color: #f1f1f1;
   background-color: #212121;
-  border-radius: 20px;
+  border-radius: 25px;
+  border-right: none;
+  border: 1px solid rgb(90, 90, 90);
+  padding-left: 20px;
 }
 
 .search-form-control:hover,
 .search-form-control:focus {
   background-color: #212121;
   color: #f1f1f1;
+  box-shadow: none;
+  border: solid 1px rgb(67, 109, 249);
+}
+
+.search-btn {
+  background-color: #212121;
+  border-top-right-radius: 25px;
+  border-bottom-right-radius: 25px;
+  border: 1px solid rgb(90, 90, 90);
+  border-left: none;
+  color: grey;
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-top: 10px;
+}
+
+.search-btn:hover {
+  background-color: none;
 }
 
 .m-auto {

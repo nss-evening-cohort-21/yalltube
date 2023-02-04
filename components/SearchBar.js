@@ -1,8 +1,10 @@
+import Image from 'next/image';
 import { useRouter } from 'next/router';
 import React, { useState } from 'react';
 import {
-  Button, Form, FormControl, InputGroup,
+  Form, FormControl, InputGroup,
 } from 'react-bootstrap';
+import searchIcon from '../public/images/searchWhite.png';
 
 export default function SearchBar() {
   const [searchInput, setSearchInput] = useState('');
@@ -27,9 +29,9 @@ export default function SearchBar() {
           onChange={handleChange}
           value={searchInput}
         />
-        <Button variant="outline-secondary" id="button-addon2">
-          Search
-        </Button>
+        <button type="submit" className="search-btn" id="button-addon2">
+          <Image src={searchIcon} alt="search icon" height={20} width={20} />
+        </button>
       </InputGroup>
     </Form>
   );
