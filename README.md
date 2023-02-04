@@ -16,7 +16,7 @@ Welcome to Y'AllTube! Where you can see and add videos for all y'all using any v
 - Playlists: Users can create playlists for their favorite video topics. 
 
 
-## Video Walkthrough of APP NAME <!-- A loom link is sufficient -->
+## Video Walkthrough of Y'allTube <!-- A loom link is sufficient -->
 in process
 
 ## Relevant Links <!-- Link to all the things that are required outside of the ones that have their own section -->
@@ -48,11 +48,7 @@ const handleSubmit = (e) => {
   ```
 
 ## Project Screenshots <!-- These can be inside of your project. Look at the repos from class and see how the images are included in the readme -->
-<img width="250" alt="home page" src="./src/assests/screenshots/homePage.png">
-<img width="250" alt="offcanvas menu" src="./src/assests/screenshots/offcanvasMenu.png">
-<img width="250" alt="profile modal" src="./src/assests/screenshots/profileModal.png">
-<img width="250" alt="add video form" src="./src/assests/screenshots/addVideoForm.png">
-<img width="250" alt="view video page" src="./src/assests/screenshots/viewVideo.png">
+<img width="250" alt="home page" src="./src/assets/screenshots/homePage.png"> <img width="250" alt="offcanvas menu" src="./src/assets/screenshots/offcanvasMenu.png"> <img width="250" alt="profile modal" src="./src/assets/screenshots/profileModal.png"> <img width="250" alt="add video form" src="./src/assets/screenshots/addVideoForm.png"> <img width="250" alt="view video page" src="./src/assets/screenshots/viewVideo.png">
 
 ## Contributors
 - [Erin Stephens](https://github.com/erin-stephens)
