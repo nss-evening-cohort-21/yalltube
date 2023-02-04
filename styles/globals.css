@@ -230,3 +230,7 @@ body {
   background-color: #FF0000;
   border-color: #ff0000d3;
 }
+
+.signin-btn {
+  font-size: 15px;
+}
