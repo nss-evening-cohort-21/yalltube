@@ -1,3 +1,4 @@
+import Head from 'next/head';
 import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react';
 import { getSingleVideo } from '../../../API/videoData';
@@ -13,6 +14,10 @@ export default function EditVideoPage() {
   }, [firebaseKey]);
 
   return (
-    <VideoForm obj={editItem} />
+    <>
+      <Head>
+        <title>Edit Video</title>
+      </Head><VideoForm obj={editItem} />
+    </>
   );
 }
