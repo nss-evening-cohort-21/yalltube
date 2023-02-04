@@ -185,6 +185,16 @@ body {
   margin: 10px 20px 0px 0px;
 }
 
+.video-page-buttons:hover, .red-btn:hover, .blue-btn:hover {
+  background-color: grey;
+  border-color: grey;
+  color: white;
+}
+
+.view-page-icon {
+  margin: 20px 0px;
+}
+
 .navbar {
   overflow: hidden;
   background-color: #212121;
@@ -208,13 +218,13 @@ body {
   background-color: rgb(61, 60, 60);
 }
 
-.blue-btn, .blue-btn:hover {
+.blue-btn  {
   background-color: #3ea6ff;
   border-color:#3ea5ffee;
   color: black;
 }
 
-.red-btn, .red-btn:hover {
+.red-btn {
   background-color: #FF0000;
   border-color: #ff0000d3;
 }
