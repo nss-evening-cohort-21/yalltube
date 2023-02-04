@@ -1,14 +1,16 @@
 import React from 'react';
 import Link from 'next/link';
 import {
-  Navbar, Container, Nav, Button,
+  Navbar, Container, Nav,
 } from 'react-bootstrap';
+import Image from 'next/image';
 import WhiteLogo from './WhiteLogo';
 import ProfileModal from './ProfileModal';
 import NavOffcanvas from './Offcanvas';
 import SearchBar from './SearchBar';
 import { useAuth } from '../utils/context/authContext';
 import { signIn } from '../utils/auth';
+import userIcon from '../src/assets/images/user_icon.png';
 
 export default function NavBar() {
   const { user } = useAuth();
@@ -43,13 +45,9 @@ export default function NavBar() {
         >
           {user ? <ProfileModal />
             : (
-              <Button
-                className="signin-btn"
-                type="button"
-                variant="outline-secondary"
-                onClick={signIn}
-              >Sign In
-              </Button>
+              <button type="button" className="signin-btn" onClick={signIn}>
+                <Image src={userIcon} alt="search icon" height={20} width={20} /> <p className="signin-p">Sign In</p>
+              </button>
             )}
         </div>
       </Navbar>

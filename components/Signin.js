@@ -1,6 +1,7 @@
 import React from 'react';
-import { Button } from 'react-bootstrap';
+import Image from 'next/image';
 import { signIn } from '../utils/auth';
+import userIcon from '../src/assets/images/user_icon.png';
 
 function Signin() {
   return (
@@ -15,9 +16,9 @@ function Signin() {
     >
       {/* <h1>Hi there!</h1> */}
       <p>Please sign in to access this feature</p>
-      <Button type="button" variant="dark" onClick={signIn}>
-        Sign In
-      </Button>
+      <button type="button" className="signin-btn" onClick={signIn}>
+        <Image src={userIcon} alt="search icon" height={20} width={20} /> <p className="signin-p">Sign In</p>
+      </button>
     </div>
   );
 }
