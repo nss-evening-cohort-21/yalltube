@@ -7,8 +7,10 @@ import WhiteLogo from './WhiteLogo';
 import ProfileModal from './ProfileModal';
 import NavOffcanvas from './Offcanvas';
 import SearchBar from './SearchBar';
+import { useAuth } from '../utils/context/authContext';
 
 export default function NavBar() {
+  const { user } = useAuth();
   return (
     <>
       <Navbar collapseOnSelect expand="lg" className="navbar">
@@ -38,7 +40,7 @@ export default function NavBar() {
           padding: '0px 20px 0px 0px',
         }}
         >
-          <ProfileModal />
+          {user ? <ProfileModal /> : 'Sign In'}
         </div>
       </Navbar>
     </>
