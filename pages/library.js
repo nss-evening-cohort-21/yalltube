@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import React, { useEffect, useState } from 'react';
 import { getUserVideos } from '../API/videoData';
+import Signin from '../components/Signin';
 import VideoCard from '../components/VideoCard';
 import { useAuth } from '../utils/context/authContext';
 
@@ -20,10 +21,14 @@ export default function Home() {
       <Head>
         <title>Library</title>
       </Head>
-      <div className="home-card-container">{libraryVideos.map((video) => (
-        <VideoCard key={video.firebaseKey} videoObj={video} onUpdate={displayUserVideos} />
-      ))}
-      </div>
+      {user
+        ? (
+          <div className="home-card-container">{libraryVideos.map((video) => (
+            <VideoCard key={video.firebaseKey} videoObj={video} onUpdate={displayUserVideos} />
+          ))}
+          </div>
+        ) : <Signin />}
+
     </>
   );
 }
