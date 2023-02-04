@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import React, { useEffect, useState } from 'react';
-import { getHomeVideos } from '../API/videoData';
+import { getHomeVideos, getPublicVideos } from '../API/videoData';
 import VideoCard from '../components/VideoCard';
 import { useAuth } from '../utils/context/authContext';
 
@@ -12,7 +12,11 @@ export default function Home() {
   };
 
   useEffect(() => {
-    getHomeVideos(user.uid).then(setHomeVideos);
+    if (user) {
+      getHomeVideos(user.uid).then(setHomeVideos);
+    } else {
+      getPublicVideos().then(setHomeVideos);
+    }
   }, [user]);
 
   return (
