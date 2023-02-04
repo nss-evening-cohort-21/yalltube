@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import { Button } from 'react-bootstrap';
+import Head from 'next/head';
 import { getSingleVideo, deleteVideo } from '../../API/videoData';
 import { useAuth } from '../../utils/context/authContext';
 
@@ -23,6 +24,9 @@ export default function ViewVideo() {
 
   return (
     <>
+      <Head>
+        <title>{videoDetails.video_title}</title>
+      </Head>
       <div className="video-page-container">
         <div className="video-container">
           <iframe

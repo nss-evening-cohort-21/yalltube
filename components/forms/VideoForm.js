@@ -55,7 +55,7 @@ export default function VideoForm({ obj }) {
 
   return (
     <Form onSubmit={handleSubmit}>
-      <h1 className="mt-5 mb-3">{obj.firebaseKey ? 'Update' : 'Create'} Video</h1>
+      <h1 className="mt-5 mb-3">{obj.firebaseKey ? 'Update' : 'Add'} Video</h1>
 
       {/* VIDEO URL */}
       <FloatingLabel controlId="floatingInput1" label="Video URL" className="mb-3 text-black">
