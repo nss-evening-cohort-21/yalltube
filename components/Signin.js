@@ -1,25 +1,28 @@
-import React from 'react';
-import { signIn } from '../utils/auth';
+/* eslint-disable react/no-unescaped-entities */
+import Head from 'next/head';
+import React, { useEffect, useState } from 'react';
+import { getPublicVideos } from '../API/videoData';
+// import { signIn } from '../utils/auth';
 import NavBar from './NavBar';
+import VideoCard from './VideoCard';
 
 function Signin() {
+  const [videos, setVideos] = useState([]);
+  const displayVideos = () => {
+    getPublicVideos().then(setVideos);
+  };
+  useEffect(() => {
+    displayVideos();
+  }, []);
   return (
     <>
+      <Head>
+        <title>Y'allTube</title>
+      </Head>
       <NavBar />
-      <div
-        className="text-center d-flex flex-column justify-content-center align-content-center"
-        style={{
-          height: '90vh',
-          padding: '30px',
-          maxWidth: '400px',
-          margin: '0 auto',
-        }}
-      >
-        <h1>Hi there!</h1>
-        <p>Click the button below to login!</p>
-        <button type="button" className="btn btn-primary btn-lg copy-btn" onClick={signIn}>
-          Sign In
-        </button>
+      <div className="home-card-container">{videos.map((video) => (
+        <VideoCard key={video.firebaseKey} videoObj={video} onUpdate={displayVideos} />
+      ))}
       </div>
     </>
   );

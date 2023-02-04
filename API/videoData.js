@@ -85,6 +85,25 @@ const deleteVideo = (firebaseKey) => new Promise((resolve, reject) => {
     .then((data) => resolve((data)))
     .catch(reject);
 });
+// Get Public Videos for SignIn Page
+const getPublicVideos = () => new Promise((resolve, reject) => {
+  fetch(`${endpoint}/videos.json`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      if (data) {
+        const filteredVideos = Object.values(data).filter((item) => item.public);
+        resolve(filteredVideos);
+      } else {
+        resolve([]);
+      }
+    })
+    .catch(reject);
+});
 export {
   getUserVideos,
   getHomeVideos,
@@ -92,4 +111,5 @@ export {
   createVideo,
   updateVideo,
   deleteVideo,
+  getPublicVideos,
 };

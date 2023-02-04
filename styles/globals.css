@@ -207,3 +207,7 @@ body {
 .modal-link:hover {
   background-color: rgb(61, 60, 60);
 }
+
+.signin-btn {
+  font-size: 10px;
+}
