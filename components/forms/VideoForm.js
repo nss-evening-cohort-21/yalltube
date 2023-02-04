@@ -108,8 +108,8 @@ export default function VideoForm({ obj }) {
       />
 
       {/* SUBMIT BUTTON  */}
-      <Button type="submit">{obj.firebaseKey ? 'Update' : 'Create'} Video</Button>
-      <Button type="btn" className="mx-2 btn-danger" onClick={() => router.back()}>Cancel</Button>
+      <Button type="submit" className="blue-btn">{obj.firebaseKey ? 'Update' : 'Add'} Video</Button>
+      <Button type="btn" className="mx-2 red-btn" onClick={() => router.back()}>Cancel</Button>
 
     </Form>
   );
