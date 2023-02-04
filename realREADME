@@ -1,37 +1,58 @@
-# Y'AllTube  [![Netlify Status](https://api.netlify.com/api/v1/badges/4ab7e730-7ed3-4cfd-a988-66195e79a991/deploy-status)](https://app.netlify.com/sites/drt-sortinghat/deploys)
-<!-- update the netlify badge above with your own badge that you can find at netlify under settings/general#status-badges -->
+# Y'AllTube  [![Netlify Status](https://api.netlify.com/api/v1/badges/c32b432b-9166-46fa-bb4e-7c2457fa47fa/deploy-status)](https://app.netlify.com/sites/yalltube/deploys)
 
-Here I am putting an overview of what my project is about. It comes below the name of my project so that others can read what it is about and get more details.
+Welcome to Y'AllTube! Where you can see and add videos for all y'all using any video platform you like. 
 
-[View App](#your-link)
-
-## Get Started <!-- OPTIONAL, but doesn't hurt -->
-PLACE CODE SNIPPET HERE
+[View Y'AllTube](https://yalltube.netlify.app/)
 
 ## About the User <!-- This is a scaled down user persona -->
-- The ideal user for this application is a teacher
-- They have students in their classrooms that they would like to put into random groups and they have a love and passion of Harry Potter
-- The problem this app solves for them is it allows them to get their students involved and excited about being in random groups. The students have felt that the groups have not been so random and based on favorites.
+- The ideal user for this application is anyone who likes to watch videos.
+- The user wants to create a page of all their favorite videos across many different platforms. 
+- The problem this app solves for the user is that they can add videos from Youtube, Vimeo, and other video hosting sites all in one place. Typically a user would have to switch between platforms and this allow them to watch the videos in one link. 
 
 ## Features <!-- List your app features using bullets! Do NOT use a paragraph. No one will read that! -->
-- When a new student is added an object should be created and that object should be pushed into an array of students that then prints to the DOM.
-- House Colors: The color of the student's card changes depending on which house they were sorted.
-- Card Ordering: Sort the student cards by some criteria (i.e. alphabetically by name, by house)
-- Voldermort's Army: Create a separate container of cards that hold the cards for students that have been expelled. These should be styled differently from Hogwarts students.
+- When a new video is added an object should be created and that object should be pushed into an array of videos that then prints to the DOM.
+- Public/ Private: Users can set the videos for public viewing or private viewing via and toggle button on the add video form.
+- Users can see all public videos on the home page without being logged in. 
+- Playlists: Users can create playlists for their favorite video topics. 
+
 
 ## Video Walkthrough of APP NAME <!-- A loom link is sufficient -->
-https://www.loom.com/share/829b90d831ea441ba2db6bea724af210
+in process
 
 ## Relevant Links <!-- Link to all the things that are required outside of the ones that have their own section -->
-- [Check out the deployed site](#your-link)
+- [Check out the deployed site](https://yalltube.netlify.app/)
 - [Wireframes](https://excalidraw.com/#json=9GSOzwiCFtDO5MwDwgwb2,2OYNH24qcPerunzRlA_6Dg)
 - [ERD](https://dbdiagram.io/d/63d571c6296d97641d7cbd78)
 
 ## Code Snippet <!-- OPTIONAL, but doesn't hurt -->
-PLACE CODE SNIPPET HERE
+```
+const handleSubmit = (e) => {
+    e.preventDefault();
+    if (obj.firebaseKey) {
+      updateVideo(formInput)
+        .then(() => router.push(`/video/${obj.firebaseKey}`));
+    } else {
+      const payload = {
+        ...formInput, uid: user.uid, date_added: new Date().toLocaleString(), username: user.displayName,
+      };
+      createVideo(payload)
+        .then(({ name }) => {
+          const patchPayload = { firebaseKey: name };
+          updateVideo(patchPayload)
+            .then(() => {
+              router.push('/library');
+            });
+        });
+    }
+  };
+  ```
 
 ## Project Screenshots <!-- These can be inside of your project. Look at the repos from class and see how the images are included in the readme -->
-<img width="1148" alt="Your Alt" src="your-link.png">
+<img width="250" alt="home page" src="./src/assests/screenshots/homePage.png">
+<img width="250" alt="offcanvas menu" src="./src/assests/screenshots/offcanvasMenu.png">
+<img width="250" alt="profile modal" src="./src/assests/screenshots/profileModal.png">
+<img width="250" alt="add video form" src="./src/assests/screenshots/addVideoForm.png">
+<img width="250" alt="view video page" src="./src/assests/screenshots/viewVideo.png">
 
 ## Contributors
 - [Erin Stephens](https://github.com/erin-stephens)
