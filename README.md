@@ -1,13 +1,14 @@
 # Y'AllTube  [![Netlify Status](https://api.netlify.com/api/v1/badges/c32b432b-9166-46fa-bb4e-7c2457fa47fa/deploy-status)](https://app.netlify.com/sites/yalltube/deploys)
 
-Welcome to Y'AllTube! Where you can see and add videos for all y'all using any video platform you like. 
+Welcome to Y'AllTube! Where you can see and add videos for all y'all using YouTube. 
 
 [View Y'AllTube](https://yalltube.netlify.app/)
 
 ## About the User <!-- This is a scaled down user persona -->
 - The ideal user for this application is anyone who likes to watch videos.
-- The user wants to create a page of all their favorite videos across many different platforms. 
-- The problem this app solves for the user is that they can add videos from Youtube, Vimeo, and other video hosting sites all in one place. Typically a user would have to switch between platforms and this allow them to watch the videos in one link. 
+- The user wants to create a page of all their favorite videos from YouTube. 
+- The problem this app solves for the user is that they can add videos from Youtube and see other's added videos in one place.
+- Users 
 
 ## Features <!-- List your app features using bullets! Do NOT use a paragraph. No one will read that! -->
 - When a new video is added an object should be created and that object should be pushed into an array of videos that then prints to the DOM.
@@ -21,6 +22,7 @@ in process
 
 ## Relevant Links <!-- Link to all the things that are required outside of the ones that have their own section -->
 - [Check out the deployed site](https://yalltube.netlify.app/)
+- [Team Planning] (https://www.figma.com/file/77zzVyJ6pNG6uvh0FMyxea/Y'allTube-Brainstorm?node-id=44%3A20&t=K0mDhwL7G4qOp4kv-0)
 - [Wireframes](https://excalidraw.com/#json=9GSOzwiCFtDO5MwDwgwb2,2OYNH24qcPerunzRlA_6Dg)
 - [ERD](https://dbdiagram.io/d/63d571c6296d97641d7cbd78)
 
