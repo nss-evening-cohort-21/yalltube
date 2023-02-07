@@ -9,30 +9,29 @@ import Card from 'react-bootstrap/Card';
 import Dropdown from 'react-bootstrap/Dropdown';
 import { deleteVideo } from '../API/videoData';
 
-function PlaylistCard({ playlistObj, onUpdate }) {
-  const deleteThisPlaylist = () => {
-    if (window.confirm(`Delete ${playlistObj.playlist_title}?`)) {
-      deleteVideo(playlistObj.firebaseKey).then(() => onUpdate());
+function PlaylistVideoCard({ playlistVideoObj, onUpdate }) {
+  const removeThisVideo = () => {
+    if (window.confirm(`Remove ${playlistVideoObj.video_title}?`)) {
+      deleteVideo(playlistVideoObj.firebaseKey).then(() => onUpdate());
     }
   };
   return (
     <>
       <Card className="video-card">
         <div className="card-video-container">
-          <img className="card-video" src={playlistObj.image} alt={playlistObj.playlist_title}></img>
+          <iframe className="card-video" src={`${playlistVideoObj.video_url}?modestbranding=1&showinfo=0&mute=1`} title={playlistVideoObj.video_title}></iframe>
         </div>
         <Card.Body className="video-card-body">
-          <Card.Title className="video-card-title">{playlistObj.playlist_title}
+          <Card.Title className="video-card-title">{playlistVideoObj.video_title}
           </Card.Title>
-          <div>{playlistObj.playlist_title}</div>
+          <div>{playlistVideoObj.video_title}</div>
           <Dropdown>
             <Dropdown.Toggle className="video-card-dropdown">
               Options
             </Dropdown.Toggle>
             <Dropdown.Menu>
-              <Dropdown.Item href={`/playlist/${playlistObj.firebaseKey}`}>View</Dropdown.Item>
-              <Dropdown.Item href={`/playlist/edit/${playlistObj.firebaseKey}`}>Edit</Dropdown.Item>
-              <Dropdown.Item onClick={deleteThisPlaylist}>Delete</Dropdown.Item>
+              <Dropdown.Item href={`/playlist/${playlistVideoObj.firebaseKey}`}>View</Dropdown.Item>
+              <Dropdown.Item onClick={removeThisVideo}>Remove</Dropdown.Item>
 
             </Dropdown.Menu>
           </Dropdown>
@@ -42,15 +41,17 @@ function PlaylistCard({ playlistObj, onUpdate }) {
   );
 }
 
-PlaylistCard.propTypes = {
-  playlistObj: PropTypes.shape({
-    playlist_title: PropTypes.string,
+PlaylistVideoCard.propTypes = {
+  playlistVideoObj: PropTypes.shape({
+    video_url: PropTypes.string,
+    video_title: PropTypes.string,
+    description: PropTypes.string,
+    public: PropTypes.bool,
     image: PropTypes.string,
     date_added: PropTypes.string,
+    username: PropTypes.string,
     firebaseKey: PropTypes.string,
     uid: PropTypes.string,
   }).isRequired,
   onUpdate: PropTypes.func.isRequired,
 };
-
-export default PlaylistCard;
