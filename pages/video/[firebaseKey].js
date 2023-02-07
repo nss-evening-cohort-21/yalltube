@@ -50,7 +50,7 @@ export default function ViewVideo() {
             {videoDetails.date_added}
           </h6>
           <p>{videoDetails.description}</p>
-          <div className={styles.buttonContainer}>
+          <div className="buttonContainer">
             {videoDetails.uid === user.uid ? (
               <Button className={styles.blueBtn} href={`/video/edit/${videoDetails.firebaseKey}`}>Edit</Button>
             ) : ''}
