@@ -40,11 +40,6 @@ PlaylistVideoCard.propTypes = {
   playlistVideoObj: PropTypes.shape({
     video_url: PropTypes.string,
     video_title: PropTypes.string,
-    description: PropTypes.string,
-    public: PropTypes.bool,
-    image: PropTypes.string,
-    date_added: PropTypes.string,
-    username: PropTypes.string,
     firebaseKey: PropTypes.string,
     uid: PropTypes.string,
   }).isRequired,
