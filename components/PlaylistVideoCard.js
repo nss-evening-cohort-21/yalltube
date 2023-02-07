@@ -30,9 +30,8 @@ function PlaylistVideoCard({ playlistVideoObj, onUpdate }) {
               Options
             </Dropdown.Toggle>
             <Dropdown.Menu>
-              <Dropdown.Item href={`/playlist/${playlistVideoObj.firebaseKey}`}>View</Dropdown.Item>
+              <Dropdown.Item href={`/video/${playlistVideoObj.firebaseKey}`}>View</Dropdown.Item>
               <Dropdown.Item onClick={removeThisVideo}>Remove</Dropdown.Item>
-
             </Dropdown.Menu>
           </Dropdown>
         </Card.Body>
