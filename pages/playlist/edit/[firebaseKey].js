@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react';
+import { getSinglePlaylist } from '../../../API/playlistData';
 import PlaylistForm from '../../../components/forms/PlaylistForm';
 
 export default function EditPlaylistPage() {
@@ -9,8 +10,7 @@ export default function EditPlaylistPage() {
   const { firebaseKey } = router.query;
 
   useEffect(() => {
-    // TODO: GETSINGLEPLAYLIST API CALL
-    console.warn(firebaseKey).then(setEditItem);
+    getSinglePlaylist(firebaseKey).then(setEditItem);
   }, [firebaseKey]);
 
   return (

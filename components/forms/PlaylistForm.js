@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { useRouter } from 'next/router';
 import { Button, FloatingLabel, Form } from 'react-bootstrap';
 import { useAuth } from '../../utils/context/authContext';
+import { createPlaylist, updatePlaylist } from '../../API/playlistData';
 
 const initialState = {
   firebaseKey: '',
@@ -32,17 +33,14 @@ export default function PlaylistForm({ obj }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (obj.firebaseKey) {
-      // TODO: CHANGE THIS TO UPDATEPLAYLIST API CALL
-      console.warn(formInput)
+      updatePlaylist(formInput)
         .then(() => router.back());
     } else {
       const payload = { ...formInput, uid: user.uid };
-      // TODO: CHANGE THIS TO CREATEPLAYLIST API CALL
-      console.warn(payload)
+      createPlaylist(payload)
         .then(({ name }) => {
           const patchPayload = { firebaseKey: name };
-          // TODO: CHANGE THIS TO UPDATEPLAYLIST API CALL
-          console.warn(patchPayload)
+          updatePlaylist(patchPayload)
             .then(() => router.back());
         });
     }
