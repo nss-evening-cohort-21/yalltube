@@ -232,5 +232,22 @@ body {
 }
 
 .signin-btn {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #212121;
   font-size: 15px;
+  color: #3ea6ff;
+  border-radius: 35px;
+  width: 120px;
+  height: 47px;
+  border: 1px solid rgb(90, 90, 90);
+}
+
+.signin-btn:hover {
+  background-color: rgba(62, 165, 255, 0.31);
+}
+
+.signin-p {
+  margin: 0;
 }
