@@ -77,8 +77,6 @@ const deletePlaylist = (firebaseKey) => new Promise((resolve, reject) => {
 
 // REMOVE Video from Playlist
 
-
-
 export {
   getPlaylists,
   getSinglePlaylist,
