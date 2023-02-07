@@ -4,12 +4,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Card from 'react-bootstrap/Card';
 import Dropdown from 'react-bootstrap/Dropdown';
-import { deleteVideo } from '../API/videoData';
 
 function PlaylistVideoCard({ playlistVideoObj, onUpdate }) {
   const removeThisVideo = () => {
     if (window.confirm(`Remove ${playlistVideoObj.video_title}?`)) {
-      deleteVideo(playlistVideoObj.firebaseKey).then(() => onUpdate());
+      console.warn(playlistVideoObj.firebaseKey).then(() => onUpdate());
     }
   };
   return (
