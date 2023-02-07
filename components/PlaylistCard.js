@@ -7,24 +7,24 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Card from 'react-bootstrap/Card';
 import Dropdown from 'react-bootstrap/Dropdown';
-import { deleteVideo } from '../API/videoData';
+import { deletePlaylist } from '../API/playlistData';
 
 function PlaylistCard({ playlistObj, onUpdate }) {
   const deleteThisPlaylist = () => {
-    if (window.confirm(`Delete ${playlistObj.playlist_title}?`)) {
-      deleteVideo(playlistObj.firebaseKey).then(() => onUpdate());
+    if (window.confirm(`Delete ${playlistObj.playlist_name}?`)) {
+      deletePlaylist(playlistObj.firebaseKey).then(() => onUpdate());
     }
   };
   return (
     <>
       <Card className="video-card">
         <div className="card-video-container">
-          <img className="card-video" src={playlistObj.image} alt={playlistObj.playlist_title}></img>
+          <img className="card-video" src={playlistObj.image} alt={playlistObj.playlist_name}></img>
         </div>
         <Card.Body className="video-card-body">
-          <Card.Title className="video-card-title">{playlistObj.playlist_title}
+          <Card.Title className="video-card-title">{playlistObj.playlist_name}
           </Card.Title>
-          <div>{playlistObj.playlist_title}</div>
+
           <Dropdown>
             <Dropdown.Toggle className="video-card-dropdown">
               Options
@@ -44,9 +44,8 @@ function PlaylistCard({ playlistObj, onUpdate }) {
 
 PlaylistCard.propTypes = {
   playlistObj: PropTypes.shape({
-    playlist_title: PropTypes.string,
+    playlist_name: PropTypes.string,
     image: PropTypes.string,
-    date_added: PropTypes.string,
     firebaseKey: PropTypes.string,
     uid: PropTypes.string,
   }).isRequired,

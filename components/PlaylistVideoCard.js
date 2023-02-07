@@ -1,8 +1,5 @@
-/* eslint-disable react/no-unknown-property */
-/* eslint-disable jsx-a11y/img-redundant-alt */
 /* eslint-disable @next/next/no-img-element */
 /* eslint-disable react/self-closing-comp */
-/* eslint-disable jsx-a11y/media-has-caption */
 import React from 'react';
 import PropTypes from 'prop-types';
 import Card from 'react-bootstrap/Card';
@@ -24,7 +21,6 @@ function PlaylistVideoCard({ playlistVideoObj, onUpdate }) {
         <Card.Body className="video-card-body">
           <Card.Title className="video-card-title">{playlistVideoObj.video_title}
           </Card.Title>
-          <div>{playlistVideoObj.video_title}</div>
           <Dropdown>
             <Dropdown.Toggle className="video-card-dropdown">
               Options
