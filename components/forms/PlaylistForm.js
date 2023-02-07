@@ -10,7 +10,6 @@ const initialState = {
   playlist_name: '',
   uid: '',
   image: '',
-  videos: [],
 };
 
 export default function PlaylistForm({ obj }) {
@@ -85,7 +84,6 @@ PlaylistForm.propTypes = {
     playlist_name: PropTypes.string,
     uid: PropTypes.string,
     image: PropTypes.string,
-    videos: PropTypes.arrayOf(),
   }),
 };
 
