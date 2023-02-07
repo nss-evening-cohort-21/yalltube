@@ -47,13 +47,13 @@ body {
   background-color: #212121;
 }
 
-.profile-modal,
+/* .profile-modal,
 .modal-content {
   background-color: #212121;
   color: #f1f1f1;
   border-radius: 20px;
   padding: 0;
-}
+} */
 
 .home-content-container {
   height: 90%;
@@ -119,24 +119,24 @@ body {
   transition: .9s;
 }
 
-.search-form-control {
+/* .search-form-control {
   color: #f1f1f1;
   background-color: #212121;
   border-radius: 25px;
   border-right: none;
   border: 1px solid rgb(90, 90, 90);
   padding-left: 20px;
-}
+} */
 
-.search-form-control:hover,
+/* .search-form-control:hover,
 .search-form-control:focus {
   background-color: #212121;
   color: #f1f1f1;
   box-shadow: none;
   border: solid 1px rgb(67, 109, 249);
-}
+} */
 
-.search-btn {
+/* .search-btn {
   background-color: #212121;
   border-top-right-radius: 25px;
   border-bottom-right-radius: 25px;
@@ -146,11 +146,11 @@ body {
   padding-left: 30px;
   padding-right: 30px;
   padding-top: 10px;
-}
+} */
 
-.search-btn:hover {
+/* .search-btn:hover {
   background-color: none;
-}
+} */
 
 .m-auto {
   width: 600px;
@@ -207,10 +207,11 @@ body {
   height: 70px;
 }
 
-.modal-body {
+/* .modal-body {
   padding: 0;
-}
+} */
 
+/* 
 .modal-link {
   padding: 20px;
   margin: 0;
@@ -218,7 +219,7 @@ body {
 
 .modal-link:hover {
   background-color: rgb(61, 60, 60);
-}
+} */
 
 .blue-btn {
   background-color: #3ea6ff;
@@ -231,7 +232,7 @@ body {
   border-color: #ff0000d3;
 }
 
-.signin-btn {
+/* .signin-btn {
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -250,4 +251,4 @@ body {
 
 .signin-p {
   margin: 0;
-}
+} */

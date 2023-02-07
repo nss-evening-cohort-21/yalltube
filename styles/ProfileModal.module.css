@@ -1,0 +1,21 @@
+.profileModal {
+  background-color: #212121;
+  color: #f1f1f1;
+  border-radius: 7px;
+  padding: 0;
+}
+
+.modalBody {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+}
+
+.modalLink {
+  padding: 20px;
+  margin: 0;
+}
+
+.modalLink:hover {
+  background-color: rgb(61, 60, 60);
+}

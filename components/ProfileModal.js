@@ -5,6 +5,7 @@ import {
 import Link from 'next/link';
 import { useAuth } from '../utils/context/authContext';
 import { signOut } from '../utils/auth';
+import styles from '../styles/ProfileModal.module.css';
 
 export default function ProfileModal() {
   const [show, setShow] = useState(false);
@@ -25,7 +26,7 @@ export default function ProfileModal() {
       />
 
       <Modal show={show} onHide={handleClose}>
-        <ModalBody className="profile-modal">
+        <ModalBody className={styles.profileModal}>
           <Modal.Header>
             <Image
               src={user.photoURL}
@@ -40,14 +41,14 @@ export default function ProfileModal() {
               <h6>{user.email}</h6>
             </div>
           </Modal.Header>
-          <Modal.Body className="d-flex flex-column">
+          <Modal.Body className={styles.modalBody}>
             <Link passHref href="/library">
-              <Card.Text onClick={handleClose} className="modal-link">
+              <Card.Text onClick={handleClose} className={styles.modalLink}>
                 Your channel
               </Card.Text>
             </Link>
             <Link passHref href="/">
-              <Card.Text onClick={signOut} className="modal-link">
+              <Card.Text onClick={signOut} className={styles.modalLink}>
                 Sign out
               </Card.Text>
             </Link>
