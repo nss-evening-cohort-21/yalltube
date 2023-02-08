@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import Card from 'react-bootstrap/Card';
 import Dropdown from 'react-bootstrap/Dropdown';
 
-function PlaylistVideoCard({ playlistVideoObj, onUpdate }) {
+export default function PlaylistVideoCard({ playlistVideoObj, onUpdate }) {
   const removeThisVideo = () => {
     if (window.confirm(`Remove ${playlistVideoObj.video_title}?`)) {
       console.warn(playlistVideoObj.firebaseKey).then(() => onUpdate());
