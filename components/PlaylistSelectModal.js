@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import { useRouter } from 'next/router';
 import PropTypes from 'prop-types';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import Form from 'react-bootstrap/Form';
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
+import { useRouter } from 'next/router';
 import { useAuth } from '../utils/context/authContext';
-import { getPlaylists, addToPlaylist } from '../API/playlistData';
+import { getPlaylists } from '../API/playlistData';
+import { createMergedObj, updateMergedObj } from '../API/mergedData';
 
 const initialState = {
   playlist_id: '',
@@ -14,22 +15,21 @@ const initialState = {
 
 export default function PlaylistSelectModal({ obj }) {
   const [show, setShow] = useState(false);
+  const [formInput, setFormInput] = useState(initialState);
+  const [playlists, setPlaylists] = useState([]);
+
+  const router = useRouter();
+  const { user } = useAuth();
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-  const [formInput, setFormInput] = useState(initialState);
-  const [playlists, setPlaylists] = useState([]);
-  const router = useRouter();
-  const { user } = useAuth();
-
   useEffect(() => {
     getPlaylists(user.uid).then(setPlaylists);
-    console.warn(obj);
   }, [obj, user]);
 
   const handleChange = (e) => {
-    console.warn(formInput);
+    // console.warn(formInput);
     const { name, value } = e.target;
     setFormInput((prevState) => ({
       ...prevState,
@@ -40,8 +40,11 @@ export default function PlaylistSelectModal({ obj }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (obj.firebaseKey) {
-      const payload = { ...formInput.playlist_id };
-      addToPlaylist(payload).then(() => router.back());
+      const payload = { ...formInput, video_id: obj.firebaseKey };
+      createMergedObj(payload).then(({ name }) => {
+        const patchPayload = { firebaseKey: name };
+        updateMergedObj(patchPayload).then(router.push(`/playlist/${formInput.playlist_id}`));
+      });
     }
   };
 
@@ -67,15 +70,15 @@ export default function PlaylistSelectModal({ obj }) {
               >
                 <option value="">Select a Playlist</option>
                 {
-            playlists.map((playlist) => (
-              <option
-                key={playlist.firebaseKey}
-                value={playlist.firebaseKey}
-              >
-                {playlist.playlist_name}
-              </option>
-            ))
-          }
+                  playlists.map((playlist) => (
+                    <option
+                      key={playlist.firebaseKey}
+                      value={playlist.firebaseKey}
+                    >
+                      {playlist.playlist_name}
+                    </option>
+                  ))
+                }
               </Form.Select>
             </FloatingLabel>
           </Form>
