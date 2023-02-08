@@ -2,7 +2,6 @@ import Head from 'next/head';
 import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react';
 import { getSinglePlaylist } from '../../API/playlistData';
-import PlaylistVideoCard from '../../components/PlaylistVideoCard';
 
 export default function ViewPlaylistPage() {
   const [playlist, setPlaylist] = useState({});
@@ -14,14 +13,13 @@ export default function ViewPlaylistPage() {
   };
   useEffect(() => {
     getPlaylist();
-  }, []);
+  });
   return (
     <>
       <Head>
-        <title>PlaYlist</title>
+        <title>{playlist.playlist_name} Playlist</title>
       </Head>
-      {/* <h1>Playlist: {playlist.playlist_name}</h1> */}
-      <PlaylistVideoCard playlistVideoObj={playlist} onUpdate={getPlaylist} />
+      <h1>{playlist.playlist_name} Playlist</h1>
     </>
   );
 }
