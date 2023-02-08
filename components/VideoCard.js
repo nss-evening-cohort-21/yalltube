@@ -9,6 +9,7 @@ import Card from 'react-bootstrap/Card';
 import Dropdown from 'react-bootstrap/Dropdown';
 import { useAuth } from '../utils/context/authContext';
 import { deleteVideo } from '../API/videoData';
+import PlaylistSelectModal from './PlaylistSelectModal';
 
 function VideoCard({ videoObj, onUpdate }) {
   const deleteThisVideo = () => {
@@ -43,6 +44,7 @@ function VideoCard({ videoObj, onUpdate }) {
               {videoObj.uid === user.uid
                 ? (<Dropdown.Item onClick={deleteThisVideo}>Delete</Dropdown.Item>
                 ) : ''}
+              <Dropdown.Item><PlaylistSelectModal /></Dropdown.Item>
             </Dropdown.Menu>
           </Dropdown>
         </Card.Body>

@@ -33,7 +33,6 @@ function PlaylistCard({ playlistObj, onUpdate }) {
               <Dropdown.Item href={`/playlist/${playlistObj.firebaseKey}`}>View</Dropdown.Item>
               <Dropdown.Item href={`/playlist/edit/${playlistObj.firebaseKey}`}>Edit</Dropdown.Item>
               <Dropdown.Item onClick={deleteThisPlaylist}>Delete</Dropdown.Item>
-
             </Dropdown.Menu>
           </Dropdown>
         </Card.Body>
