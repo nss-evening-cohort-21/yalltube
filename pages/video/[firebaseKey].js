@@ -31,17 +31,10 @@ export default function ViewVideo() {
       <div className={styles.videoPageContainer}>
         <div className={styles.videoContainer}>
           <iframe
-            width="100%"
-            height="100%"
             title={videoDetails.video_title}
             className={styles.responsiveIframe}
             src={videoDetails.video_url}
             allowfullscreen=""
-            style={{
-              position: 'absolute',
-              top: '0',
-              left: '0',
-            }}
           />
         </div>
         <div className={styles.videoPageDetails}>
@@ -50,12 +43,22 @@ export default function ViewVideo() {
             {videoDetails.date_added}
           </h6>
           <p>{videoDetails.description}</p>
-          <div className="buttonContainer">
+          <div>
             {videoDetails.uid === user.uid ? (
-              <Button className={styles.blueBtn} href={`/video/edit/${videoDetails.firebaseKey}`}>Edit</Button>
+              <Button
+                className={styles.blueBtn}
+                href={`/video/edit/${videoDetails.firebaseKey}`}
+              >
+                Edit
+              </Button>
             ) : ''}
             {videoDetails.uid === user.uid ? (
-              <Button className={styles.redBtn} onClick={deleteThisVideo}>Delete</Button>
+              <Button
+                className={styles.redBtn}
+                onClick={deleteThisVideo}
+              >
+                Delete
+              </Button>
             ) : ''}
             {videoDetails.public === false ? (
               <h5 className={styles.viewPageIcon}>&#128274; Private</h5>
