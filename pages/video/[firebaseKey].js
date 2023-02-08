@@ -4,6 +4,7 @@ import { Button } from 'react-bootstrap';
 import Head from 'next/head';
 import { getSingleVideo, deleteVideo } from '../../API/videoData';
 import { useAuth } from '../../utils/context/authContext';
+import styles from '../../styles/ViewVideoPage.module.css';
 
 export default function ViewVideo() {
   const [videoDetails, setVideoDetails] = useState([]);
@@ -27,38 +28,41 @@ export default function ViewVideo() {
       <Head>
         <title>{videoDetails.video_title}</title>
       </Head>
-      <div className="video-page-container">
-        <div className="video-container">
+      <div className={styles.videoPageContainer}>
+        <div className={styles.videoContainer}>
           <iframe
-            width="100%"
-            height="100%"
             title={videoDetails.video_title}
-            className="responsive-iframe"
+            className={styles.responsiveIframe}
             src={videoDetails.video_url}
             allowfullscreen=""
-            style={{
-              position: 'absolute',
-              top: '0',
-              left: '0',
-            }}
           />
         </div>
-        <div className="video-page-details">
+        <div className={styles.videoPageDetails}>
           <h2>{videoDetails.video_title}</h2>
           <h6>Added by: {videoDetails.username} <br />
             {videoDetails.date_added}
           </h6>
           <p>{videoDetails.description}</p>
-          <div className="button-container">
+          <div>
             {videoDetails.uid === user.uid ? (
-              <Button className="video-page-buttons blue-btn" href={`/video/edit/${videoDetails.firebaseKey}`}>Edit</Button>
+              <Button
+                className={styles.blueBtn}
+                href={`/video/edit/${videoDetails.firebaseKey}`}
+              >
+                Edit
+              </Button>
             ) : ''}
             {videoDetails.uid === user.uid ? (
-              <Button className="video-page-buttons red-btn" onClick={deleteThisVideo}>Delete</Button>
+              <Button
+                className={styles.redBtn}
+                onClick={deleteThisVideo}
+              >
+                Delete
+              </Button>
             ) : ''}
             {videoDetails.public === false ? (
-              <h5 className="view-page-icon">&#128274; Private</h5>
-            ) : <h5 className="view-page-icon">&#127758; Public</h5>}
+              <h5 className={styles.viewPageIcon}>&#128274; Private</h5>
+            ) : <h5 className={styles.viewPageIcon}>&#127758; Public</h5>}
           </div>
         </div>
       </div>

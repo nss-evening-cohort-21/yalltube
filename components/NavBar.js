@@ -9,12 +9,13 @@ import NavOffcanvas from './Offcanvas';
 import SearchBar from './SearchBar';
 import { useAuth } from '../utils/context/authContext';
 import SigninBtn from './SigninBtn';
+import styles from '../styles/NavBar.module.css';
 
 export default function NavBar() {
   const { user } = useAuth();
   return (
     <>
-      <Navbar collapseOnSelect expand="lg" className="navbar">
+      <Navbar collapseOnSelect expand="lg" className={styles.NavBar}>
         <div style={{
           padding: '0px 0px 0px 20px',
         }}
