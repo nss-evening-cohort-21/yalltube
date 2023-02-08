@@ -44,7 +44,7 @@ function VideoCard({ videoObj, onUpdate }) {
               {videoObj.uid === user.uid
                 ? (<Dropdown.Item onClick={deleteThisVideo}>Delete</Dropdown.Item>
                 ) : ''}
-              <Dropdown.Item><PlaylistSelectModal /></Dropdown.Item>
+              <Dropdown.Item><PlaylistSelectModal obj={videoObj} /></Dropdown.Item>
             </Dropdown.Menu>
           </Dropdown>
         </Card.Body>

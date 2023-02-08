@@ -252,3 +252,8 @@ body {
 .signin-p {
   margin: 0;
 } */
+
+.playlistModal {
+  background-color: #212121;
+  color: #f1f1f1;
+}

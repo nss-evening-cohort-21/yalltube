@@ -75,7 +75,20 @@ const deletePlaylist = (firebaseKey) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
-// REMOVE Video from Playlist
+// Add Video To Playlist
+
+const addToPlaylist = (payload, playlistFirebaseKey) => new Promise((resolve, reject) => {
+  fetch(`${endpoint}/playlists/${playlistFirebaseKey}/videos.json`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(payload),
+  })
+    .then((response) => response.json())
+    .then(resolve)
+    .catch(reject);
+});
 
 export {
   getPlaylists,
@@ -83,4 +96,5 @@ export {
   createPlaylist,
   updatePlaylist,
   deletePlaylist,
+  addToPlaylist,
 };
