@@ -1,8 +1,10 @@
 import { clientCredentials } from '../utils/client';
+import { getSinglePlaylist } from './playlistData';
+import { getSingleVideo } from './videoData';
 
 const endpoint = clientCredentials.databaseURL;
 
-const getPlayListVideos = (playlistFirebaseKey) => new Promise((resolve, reject) => {
+const getMergedObjectsByPlaylistId = (playlistFirebaseKey) => new Promise((resolve, reject) => {
   fetch(`${endpoint}/merged.json?orderBy="playlist_id"&equalTo="${playlistFirebaseKey}"`, {
     method: 'GET',
     headers: {
@@ -27,7 +29,7 @@ const createMergedObj = (payload) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 const updateMergedObj = (payload) => new Promise((resolve, reject) => {
-  fetch(`${endpoint}/merged/${payload.firebaseKey}.json`, {
+  fetch(`${endpoint}/playlists/${payload.firebaseKey}.json`, {
     method: 'PATCH',
     headers: {
       'Content-Type': 'application/json',
@@ -39,16 +41,21 @@ const updateMergedObj = (payload) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
-// const viewPlaylistDetails = (playlistFirebaseKey) => new Promise((resolve, reject) => {
-//   Promise.all([getSinglePlaylist(playlistFirebaseKey), getPlayListVideos(playlistFirebaseKey)])
-//     .then(([authorObject, authorBooksArray]) => {
-//       resolve({ ...authorObject, books: authorBooksArray });
-//     }).catch((error) => reject(error));
-// });
+const viewPlaylistDetails = (playlistFirebaseKey) => new Promise((resolve, reject) => {
+  Promise.all([getSinglePlaylist(playlistFirebaseKey), getMergedObjectsByPlaylistId(playlistFirebaseKey)])
+    .then(([playlistObject, mergedObjectsArray]) => {
+      const videosFbKeys = mergedObjectsArray.map((item) => item.video_id);
+      const videosArray = [];
+      videosFbKeys.forEach((id) => getSingleVideo(id).then((videoObj) => {
+        videosArray.push(videoObj);
+      }));
+      resolve({ ...playlistObject, videos: videosArray });
+    }).catch((error) => reject(error));
+});
 
 export {
-  getPlayListVideos,
+  getMergedObjectsByPlaylistId,
   createMergedObj,
   updateMergedObj,
-  // viewPlaylistDetails,
+  viewPlaylistDetails,
 };

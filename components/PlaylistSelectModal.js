@@ -29,7 +29,6 @@ export default function PlaylistSelectModal({ obj }) {
   }, [obj, user]);
 
   const handleChange = (e) => {
-    // console.warn(formInput);
     const { name, value } = e.target;
     setFormInput((prevState) => ({
       ...prevState,
