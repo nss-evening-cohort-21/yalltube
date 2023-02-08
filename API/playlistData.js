@@ -90,6 +90,24 @@ const addToPlaylist = (payload, playlistFirebaseKey) => new Promise((resolve, re
     .catch(reject);
 });
 
+const getPlaylistVideos = (firebaseKey) => new Promise((resolve, reject) => {
+  fetch(`${endpoint}/playlists/${firebaseKey}/videos.json`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      if (data) {
+        resolve(Object.values(data));
+      } else {
+        resolve([]);
+      }
+    })
+    .catch(reject);
+});
+
 export {
   getPlaylists,
   getSinglePlaylist,
@@ -97,4 +115,5 @@ export {
   updatePlaylist,
   deletePlaylist,
   addToPlaylist,
+  getPlaylistVideos,
 };

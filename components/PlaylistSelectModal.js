@@ -40,8 +40,8 @@ export default function PlaylistSelectModal({ obj }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (obj.firebaseKey) {
-      addToPlaylist(obj, formInput.playlist_id)
-        .then(() => router.back());
+      const payload = { ...formInput.playlist_id };
+      addToPlaylist(payload).then(() => router.back());
     }
   };
 
