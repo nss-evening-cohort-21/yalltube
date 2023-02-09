@@ -44,9 +44,9 @@ const updateMergedObj = (payload) => new Promise((resolve, reject) => {
 const viewPlaylistDetails = (playlistFirebaseKey) => new Promise((resolve, reject) => {
   Promise.all([getSinglePlaylist(playlistFirebaseKey), getMergedObjectsByPlaylistId(playlistFirebaseKey)])
     .then(([playlistObject, mergedObjectsArray]) => {
-      const videosFbKeys = mergedObjectsArray.map((item) => item.video_id);
+      const videoKeys = mergedObjectsArray.map((item) => item.video_id);
       const videosArray = [];
-      videosFbKeys.forEach((id) => getSingleVideo(id).then((videoObj) => {
+      videoKeys.forEach((id) => getSingleVideo(id).then((videoObj) => {
         videosArray.push(videoObj);
       }));
       resolve({ ...playlistObject, videos: videosArray });
