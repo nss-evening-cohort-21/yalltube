@@ -7,12 +7,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Card from 'react-bootstrap/Card';
 import Dropdown from 'react-bootstrap/Dropdown';
-import { deletePlaylist } from '../API/playlistData';
+import { deletePlaylistData } from '../API/mergedData';
 
 function PlaylistCard({ playlistObj, onUpdate }) {
   const deleteThisPlaylist = () => {
     if (window.confirm(`Delete ${playlistObj.playlist_name}?`)) {
-      deletePlaylist(playlistObj.firebaseKey).then(() => onUpdate());
+      deletePlaylistData(playlistObj.firebaseKey).then(() => onUpdate());
     }
   };
   return (

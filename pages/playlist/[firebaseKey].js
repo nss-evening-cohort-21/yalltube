@@ -33,7 +33,7 @@ export default function ViewPlaylistPage() {
       </Head>
       <h1>{playlist.playlist_name} Playlist</h1>
       <div className=" d-flex flex-wrap justify-content-center">
-        {videos.map((item) => <PlaylistVideoCard key={item.firebaseKey} playlistVideoObj={item} onUpdate={getPlaylistDetails} />)}
+        {videos.map((item) => <PlaylistVideoCard key={item.firebaseKey} playlistVideoObj={item} playlistId={firebaseKey} onUpdate={getPlaylistDetails} />)}
       </div>
     </>
   );

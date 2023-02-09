@@ -1,6 +1,5 @@
 import { clientCredentials } from '../utils/client';
-import { getSinglePlaylist } from './playlistData';
-import { getSingleVideo } from './videoData';
+import { deletePlaylist } from './playlistData';
 
 const endpoint = clientCredentials.databaseURL;
 
@@ -13,6 +12,21 @@ const getMergedObjectsByPlaylistId = (playlistFirebaseKey) => new Promise((resol
   })
     .then((response) => response.json())
     .then((data) => resolve(Object.values(data)))
+    .catch(reject);
+});
+
+const getSingleMergedObj = (playlistFirebaseKey, videoFirebaseKey) => new Promise((resolve, reject) => {
+  fetch(`${endpoint}/merged.json?orderBy="playlist_id"&equalTo="${playlistFirebaseKey}"`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      const arr = Object.values(data).filter((item) => item.video_id === videoFirebaseKey);
+      resolve(arr[0]);
+    })
     .catch(reject);
 });
 
@@ -29,7 +43,7 @@ const createMergedObj = (payload) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 const updateMergedObj = (payload) => new Promise((resolve, reject) => {
-  fetch(`${endpoint}/playlists/${payload.firebaseKey}.json`, {
+  fetch(`${endpoint}/merged/${payload.firebaseKey}.json`, {
     method: 'PATCH',
     headers: {
       'Content-Type': 'application/json',
@@ -41,21 +55,34 @@ const updateMergedObj = (payload) => new Promise((resolve, reject) => {
     .catch(reject);
 });
 
-const viewPlaylistDetails = (playlistFirebaseKey) => new Promise((resolve, reject) => {
-  Promise.all([getSinglePlaylist(playlistFirebaseKey), getMergedObjectsByPlaylistId(playlistFirebaseKey)])
-    .then(([playlistObject, mergedObjectsArray]) => {
-      const videoKeys = mergedObjectsArray.map((item) => item.video_id);
-      const videosArray = [];
-      videoKeys.forEach((id) => getSingleVideo(id).then((videoObj) => {
-        videosArray.push(videoObj);
-      }));
-      resolve({ ...playlistObject, videos: videosArray });
-    }).catch((error) => reject(error));
+const deleteMergedObj = (firebaseKey) => new Promise((resolve, reject) => {
+  fetch(`${endpoint}/merged/${firebaseKey}.json`, {
+    method: 'DELETE',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => resolve((data)))
+    .catch(reject);
+});
+
+const deletePlaylistData = (firebaseKey) => new Promise((resolve, reject) => {
+  getMergedObjectsByPlaylistId(firebaseKey).then((arr) => {
+    const deleteMergedDataPromises = arr.map((obj) => deleteMergedObj(obj.firebaseKey));
+
+    Promise.all(deleteMergedDataPromises).then(() => {
+      deletePlaylist(firebaseKey).then(resolve);
+    });
+  })
+    .catch(reject);
 });
 
 export {
   getMergedObjectsByPlaylistId,
   createMergedObj,
   updateMergedObj,
-  viewPlaylistDetails,
+  deleteMergedObj,
+  deletePlaylistData,
+  getSingleMergedObj,
 };

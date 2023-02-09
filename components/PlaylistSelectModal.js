@@ -38,12 +38,14 @@ export default function PlaylistSelectModal({ obj }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (obj.firebaseKey) {
+    if (formInput.playlist_id) {
       const payload = { ...formInput, video_id: obj.firebaseKey };
       createMergedObj(payload).then(({ name }) => {
         const patchPayload = { firebaseKey: name };
         updateMergedObj(patchPayload).then(router.push(`/playlist/${formInput.playlist_id}`));
       });
+    } else {
+      window.alert('You must select a valid playlist');
     }
   };
 
