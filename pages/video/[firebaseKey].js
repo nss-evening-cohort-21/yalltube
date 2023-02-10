@@ -5,12 +5,20 @@ import Head from 'next/head';
 import { getSingleVideo, deleteVideo } from '../../API/videoData';
 import { useAuth } from '../../utils/context/authContext';
 import styles from '../../styles/ViewVideoPage.module.css';
+import CommentCard from '../../components/CommentCard';
+import { getCommentsByVideoId } from '../../API/commentsData';
 import AddAComment from '../../components/forms/CommentForm';
 
 export default function ViewVideo() {
   const [videoDetails, setVideoDetails] = useState([]);
+  const [comments, setComments] = useState([]);
   const router = useRouter();
+  const { firebaseKey } = router.query;
   const { user } = useAuth();
+
+  const displayComments = () => {
+    getCommentsByVideoId(firebaseKey).then(setComments);
+  };
 
   const deleteThisVideo = () => {
     if (window.confirm(`Delete ${videoDetails.video_title}?`)) {
@@ -18,14 +26,9 @@ export default function ViewVideo() {
     }
   };
 
-  const { firebaseKey } = router.query;
-
-  const deleteMe = () => {
-    console.warn('Your comment was submitted!');
-  };
-
   useEffect(() => {
     getSingleVideo(firebaseKey).then(setVideoDetails);
+    displayComments();
   }, [firebaseKey]);
 
   return (
@@ -69,9 +72,16 @@ export default function ViewVideo() {
               <h5 className={styles.viewPageIcon}>&#128274; Private</h5>
             ) : <h5 className={styles.viewPageIcon}>&#127758; Public</h5>}
           </div>
+          <div>
+            {/* <CommentForm></CommentForm> */}
+            <div className="comment-cards-container">{comments.map((comment) => (
+              <CommentCard key={comment.firebaseKey} commentObj={comment} onUpdate={displayComments} />
+            ))}
+            </div>
+          </div>
         </div>
         <div className="comment-form">
-          <AddAComment videoFbKey={firebaseKey} onUpdate={deleteMe} />
+          <AddAComment videoFbKey={firebaseKey} onUpdate={displayComments} />
         </div>
       </div>
     </>

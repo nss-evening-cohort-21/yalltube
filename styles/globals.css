@@ -273,3 +273,7 @@ body {
 .dropdown-item:focus {
   background-color: transparent;
 }
+
+.comment-card {
+  color: black;
+}
