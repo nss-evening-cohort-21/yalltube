@@ -5,6 +5,7 @@ import Head from 'next/head';
 import { getSingleVideo, deleteVideo } from '../../API/videoData';
 import { useAuth } from '../../utils/context/authContext';
 import styles from '../../styles/ViewVideoPage.module.css';
+import AddAComment from '../../components/forms/CommentForm';
 
 export default function ViewVideo() {
   const [videoDetails, setVideoDetails] = useState([]);
@@ -64,6 +65,9 @@ export default function ViewVideo() {
               <h5 className={styles.viewPageIcon}>&#128274; Private</h5>
             ) : <h5 className={styles.viewPageIcon}>&#127758; Public</h5>}
           </div>
+        </div>
+        <div className="comment-form">
+          <AddAComment onUpdate={console.warn('update me')} />
         </div>
       </div>
     </>
