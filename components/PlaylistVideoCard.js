@@ -10,7 +10,7 @@ export default function PlaylistVideoCard({ playlistVideoObj, playlistId, onUpda
   const removeThisVideo = () => {
     if (window.confirm(`Remove ${playlistVideoObj.video_title}?`)) {
       getSingleMergedObj(playlistId, playlistVideoObj.firebaseKey).then((obj) => {
-        deleteMergedObj(obj.firebaseKey).then(onUpdate());
+        deleteMergedObj(obj.firebaseKey).then(() => onUpdate());
       });
     }
   };
