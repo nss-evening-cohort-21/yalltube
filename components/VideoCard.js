@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable react/no-unknown-property */
 /* eslint-disable jsx-a11y/img-redundant-alt */
 /* eslint-disable @next/next/no-img-element */
@@ -7,6 +8,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Card from 'react-bootstrap/Card';
 import Dropdown from 'react-bootstrap/Dropdown';
+import Link from 'next/link';
 import { useAuth } from '../utils/context/authContext';
 import PlaylistSelectModal from './PlaylistSelectModal';
 import { deleteVideoComments } from '../API/commentsData';
@@ -25,11 +27,15 @@ function VideoCard({ videoObj, onUpdate }) {
           <iframe className="card-video" src={`${videoObj.video_url}?modestbranding=1&showinfo=0&mute=1`} title={videoObj.video_title}></iframe>
         </div>
         <Card.Body className="video-card-body">
-          <Card.Title className="video-card-title">{videoObj.video_title} {user.uid === videoObj.uid
-            ? (
-              <div className="card-public">{videoObj.public === true ? '(Public)' : '(Private)'}</div>
-            ) : ''}
-          </Card.Title>
+          <Link passHref href={`video/${videoObj.firebaseKey}`}>
+            <a>
+              <Card.Title className="video-card-title">{videoObj.video_title} {user.uid === videoObj.uid
+                ? (
+                  <div className="card-public">{videoObj.public === true ? '(Public)' : '(Private)'}</div>
+                ) : ''}
+              </Card.Title>
+            </a>
+          </Link>
           <div>{videoObj.username}</div>
           <Dropdown>
             <Dropdown.Toggle className="video-card-dropdown">
