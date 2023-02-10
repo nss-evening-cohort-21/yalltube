@@ -34,7 +34,7 @@ export default function ViewVideo() {
             title={videoDetails.video_title}
             className={styles.responsiveIframe}
             src={videoDetails.video_url}
-            allowfullscreen=""
+            allowFullScreen=""
           />
         </div>
         <div className={styles.videoPageDetails}>
