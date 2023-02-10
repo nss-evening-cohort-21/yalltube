@@ -80,9 +80,12 @@ export default function ViewVideo() {
             </div>
           </div>
         </div>
-        <div className="comment-form">
-          <AddAComment videoFbKey={firebaseKey} onUpdate={displayComments} />
-        </div>
+        {user
+          && (
+            <div className="comment-form">
+              <AddAComment videoFbKey={firebaseKey} onUpdate={displayComments} />
+            </div>
+          )}
       </div>
     </>
   );
