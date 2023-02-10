@@ -164,3 +164,8 @@ body {
 .comment-card {
   color: black;
 }
+
+.modal-content {
+  background-color: #212121;
+  border-radius: 20px;
+}
