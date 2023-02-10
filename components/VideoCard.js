@@ -28,7 +28,7 @@ function VideoCard({ videoObj, onUpdate }) {
         </div>
         <Card.Body className="video-card-body">
           <Link passHref href={`video/${videoObj.firebaseKey}`}>
-            <a>
+            <a className="vid-card-link">
               <Card.Title className="video-card-title">{videoObj.video_title} {user.uid === videoObj.uid
                 ? (
                   <div className="card-public">{videoObj.public === true ? '(Public)' : '(Private)'}</div>

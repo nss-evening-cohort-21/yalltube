@@ -57,14 +57,6 @@ body {
   background-color: #212121;
 }
 
-/* .profile-modal,
-.modal-content {
-  background-color: #212121;
-  color: #f1f1f1;
-  border-radius: 20px;
-  padding: 0;
-} */
-
 .home-content-container {
   height: 90%;
   position: fixed;
@@ -129,107 +121,13 @@ body {
   transition: .9s;
 }
 
-/* .search-form-control {
-  color: #f1f1f1;
-  background-color: #212121;
-  border-radius: 25px;
-  border-right: none;
-  border: 1px solid rgb(90, 90, 90);
-  padding-left: 20px;
-} */
-
-/* .search-form-control:hover,
-.search-form-control:focus {
-  background-color: #212121;
-  color: #f1f1f1;
-  box-shadow: none;
-  border: solid 1px rgb(67, 109, 249);
-} */
-
-/* .search-btn {
-  background-color: #212121;
-  border-top-right-radius: 25px;
-  border-bottom-right-radius: 25px;
-  border: 1px solid rgb(90, 90, 90);
-  border-left: none;
+.vid-card-link:hover {
   color: grey;
-  padding-left: 30px;
-  padding-right: 30px;
-  padding-top: 10px;
-} */
-
-/* .search-btn:hover {
-  background-color: none;
-} */
+}
 
 .m-auto {
   width: 600px;
 }
-
-/* .video-page-container {
-  padding: 20px;
-}
-
-.video-container {
-  position: relative;
-  overflow: hidden;
-  width: 100%;
-  padding-top: 56.25%;
-}
-
-.responsive-iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  width: 100%;
-  height: 100%;
-}
-
-.video-page-details {
-  padding-top: 20px;
-}
-
-.video-page-buttons {
-  margin: 10px 20px 0px 0px;
-}
-
-.video-page-buttons:hover,
-.red-btn:hover,
-.blue-btn:hover {
-  background-color: grey;
-  border-color: grey;
-  color: white;
-}
-
-.view-page-icon {
-  margin: 20px 0px;
-} */
-
-/* .navbar {
-  overflow: hidden;
-  background-color: #212121;
-  position: sticky;
-  top: 0;
-  width: 100%;
-  z-index: 1;
-  height: 70px;
-} */
-
-/* .modal-body {
-  padding: 0;
-} */
-
-/* 
-.modal-link {
-  padding: 20px;
-  margin: 0;
-}
-
-.modal-link:hover {
-  background-color: rgb(61, 60, 60);
-} */
 
 .blue-btn {
   background-color: #3ea6ff;
@@ -241,27 +139,6 @@ body {
   background-color: #FF0000;
   border-color: #ff0000d3;
 }
-
-/* .signin-btn {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  background-color: #212121;
-  font-size: 15px;
-  color: #3ea6ff;
-  border-radius: 35px;
-  width: 120px;
-  height: 47px;
-  border: 1px solid rgb(90, 90, 90);
-}
-
-.signin-btn:hover {
-  background-color: rgba(62, 165, 255, 0.31);
-}
-
-.signin-p {
-  margin: 0;
-} */
 
 .playlistModal {
   background-color: #212121;
