@@ -1,4 +1,5 @@
 import { clientCredentials } from '../utils/client';
+import { deleteVideo } from './videoData';
 
 const endpoint = clientCredentials.databaseURL;
 
@@ -56,10 +57,21 @@ const deleteComment = (firebaseKey) => new Promise((resolve, reject) => {
     .then((data) => resolve((data)))
     .catch(reject);
 });
+const deleteVideoComments = (firebaseKey) => new Promise((resolve, reject) => {
+  getCommentsByVideoId(firebaseKey).then((commentsArr) => {
+    const deleteCommentsPromises = commentsArr.map((comment) => deleteComment(comment.firebaseKey));
+
+    Promise.all(deleteCommentsPromises).then(() => {
+      deleteVideo(firebaseKey).then(resolve);
+    });
+  })
+    .catch(reject);
+});
 
 export {
   getCommentsByVideoId,
   createComment,
   updateComment,
   deleteComment,
+  deleteVideoComments,
 };

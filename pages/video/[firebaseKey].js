@@ -1,12 +1,13 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import { Button } from 'react-bootstrap';
 import Head from 'next/head';
-import { getSingleVideo, deleteVideo } from '../../API/videoData';
+import { getSingleVideo } from '../../API/videoData';
 import { useAuth } from '../../utils/context/authContext';
 import styles from '../../styles/ViewVideoPage.module.css';
 import CommentCard from '../../components/CommentCard';
-import { getCommentsByVideoId } from '../../API/commentsData';
+import { deleteVideoComments, getCommentsByVideoId } from '../../API/commentsData';
 import AddAComment from '../../components/forms/CommentForm';
 
 export default function ViewVideo() {
@@ -22,7 +23,7 @@ export default function ViewVideo() {
 
   const deleteThisVideo = () => {
     if (window.confirm(`Delete ${videoDetails.video_title}?`)) {
-      deleteVideo(videoDetails.firebaseKey).then(() => router.push('/'));
+      deleteVideoComments(videoDetails.firebaseKey).then(() => router.push('/'));
     }
   };
 
@@ -80,9 +81,12 @@ export default function ViewVideo() {
             </div>
           </div>
         </div>
-        <div className="comment-form">
-          <AddAComment videoFbKey={firebaseKey} onUpdate={displayComments} />
-        </div>
+        {user
+          && (
+            <div className="comment-form">
+              <AddAComment videoFbKey={firebaseKey} onUpdate={displayComments} />
+            </div>
+          )}
       </div>
     </>
   );

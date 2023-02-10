@@ -7,6 +7,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Card from 'react-bootstrap/Card';
 import Dropdown from 'react-bootstrap/Dropdown';
+import Link from 'next/link';
 import { deletePlaylistData } from '../API/mergedData';
 
 function PlaylistCard({ playlistObj, onUpdate }) {
@@ -18,9 +19,11 @@ function PlaylistCard({ playlistObj, onUpdate }) {
   return (
     <>
       <Card className="video-card">
-        <div className="card-video-container">
-          <img className="card-video" src={playlistObj.image} alt={playlistObj.playlist_name}></img>
-        </div>
+        <Link passHref href={`/playlist/${playlistObj.firebaseKey}`}>
+          <div className="card-video-container">
+            <img className="card-video" src={playlistObj.image} alt={playlistObj.playlist_name}></img>
+          </div>
+        </Link>
         <Card.Body className="video-card-body">
           <Card.Title className="video-card-title">{playlistObj.playlist_name}
           </Card.Title>

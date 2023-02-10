@@ -1,9 +1,11 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable @next/next/no-img-element */
 /* eslint-disable react/self-closing-comp */
 import React from 'react';
 import PropTypes from 'prop-types';
 import Card from 'react-bootstrap/Card';
 import Dropdown from 'react-bootstrap/Dropdown';
+import Link from 'next/link';
 import { deleteMergedObj, getSingleMergedObj } from '../API/mergedData';
 
 export default function PlaylistVideoCard({ playlistVideoObj, playlistId, onUpdate }) {
@@ -21,8 +23,12 @@ export default function PlaylistVideoCard({ playlistVideoObj, playlistId, onUpda
           <iframe className="card-video" src={`${playlistVideoObj.video_url}?modestbranding=1&showinfo=0&mute=1`} title={playlistVideoObj.video_title}></iframe>
         </div>
         <Card.Body className="video-card-body">
-          <Card.Title className="video-card-title">{playlistVideoObj.video_title}
-          </Card.Title>
+          <Link passHref href={`/video.${playlistVideoObj.firebaseKey}`}>
+            <a className="vid-card-link">
+              <Card.Title className="video-card-title">{playlistVideoObj.video_title}
+              </Card.Title>
+            </a>
+          </Link>
           <Dropdown>
             <Dropdown.Toggle className="video-card-dropdown">
               Options
