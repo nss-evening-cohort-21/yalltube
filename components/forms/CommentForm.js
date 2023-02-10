@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Button, FloatingLabel, Form } from 'react-bootstrap';
 import { useAuth } from '../../utils/context/authContext';
+import { createComment, updateComment } from '../../API/commentsData';
 
 const intialState = {
   firebaseKey: '',
@@ -36,19 +37,17 @@ export default function AddAComment({ onUpdate }) {
       author: user.displayName,
       video_id: videoFirebaseKey,
     };
-    // TODO: create comment api call
-    console.warn(payload)
+    createComment(payload)
       .then(({ name }) => {
         const patchPayload = { firebaseKey: name };
-        // TODO: update comment api call
-        console.warn(patchPayload)
+        updateComment(patchPayload)
           .then(() => onUpdate());
       });
   };
 
   return (
     <Form onSubmit={handleSubmit}>
-      <h4 className="mt-5 mb-3">Add A Comment</h4>
+      <h4 className="mt-3 mb-3">Add A Comment</h4>
 
       <FloatingLabel controlId="floatingTextArea" label="Type your comment here..." className="mb-3 text-black">
         <Form.Control

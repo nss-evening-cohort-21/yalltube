@@ -20,6 +20,10 @@ export default function ViewVideo() {
 
   const { firebaseKey } = router.query;
 
+  const deleteMe = () => {
+    console.warn('Your comment was submitted!');
+  };
+
   useEffect(() => {
     getSingleVideo(firebaseKey).then(setVideoDetails);
   }, [firebaseKey]);
@@ -67,7 +71,7 @@ export default function ViewVideo() {
           </div>
         </div>
         <div className="comment-form">
-          <AddAComment onUpdate={console.warn('update me')} />
+          <AddAComment onUpdate={deleteMe} />
         </div>
       </div>
     </>
