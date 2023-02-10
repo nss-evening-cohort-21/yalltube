@@ -7,6 +7,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Card from 'react-bootstrap/Card';
 import Dropdown from 'react-bootstrap/Dropdown';
+import Link from 'next/link';
 import { deletePlaylistData } from '../API/mergedData';
 
 function PlaylistCard({ playlistObj, onUpdate }) {
@@ -17,26 +18,28 @@ function PlaylistCard({ playlistObj, onUpdate }) {
   };
   return (
     <>
-      <Card className="video-card">
-        <div className="card-video-container">
-          <img className="card-video" src={playlistObj.image} alt={playlistObj.playlist_name}></img>
-        </div>
-        <Card.Body className="video-card-body">
-          <Card.Title className="video-card-title">{playlistObj.playlist_name}
-          </Card.Title>
+      <Link passHref href={`/playlist/${playlistObj.firebaseKey}`}>
+        <Card className="video-card">
+          <div className="card-video-container">
+            <img className="card-video" src={playlistObj.image} alt={playlistObj.playlist_name}></img>
+          </div>
+          <Card.Body className="video-card-body">
+            <Card.Title className="video-card-title">{playlistObj.playlist_name}
+            </Card.Title>
 
-          <Dropdown>
-            <Dropdown.Toggle className="video-card-dropdown">
-              Options
-            </Dropdown.Toggle>
-            <Dropdown.Menu>
-              <Dropdown.Item className="dropdown-item" href={`/playlist/${playlistObj.firebaseKey}`}>View</Dropdown.Item>
-              <Dropdown.Item className="dropdown-item" href={`/playlist/edit/${playlistObj.firebaseKey}`}>Edit</Dropdown.Item>
-              <Dropdown.Item className="dropdown-item" onClick={deleteThisPlaylist}>Delete</Dropdown.Item>
-            </Dropdown.Menu>
-          </Dropdown>
-        </Card.Body>
-      </Card>
+            <Dropdown>
+              <Dropdown.Toggle className="video-card-dropdown">
+                Options
+              </Dropdown.Toggle>
+              <Dropdown.Menu>
+                <Dropdown.Item className="dropdown-item" href={`/playlist/${playlistObj.firebaseKey}`}>View</Dropdown.Item>
+                <Dropdown.Item className="dropdown-item" href={`/playlist/edit/${playlistObj.firebaseKey}`}>Edit</Dropdown.Item>
+                <Dropdown.Item className="dropdown-item" onClick={deleteThisPlaylist}>Delete</Dropdown.Item>
+              </Dropdown.Menu>
+            </Dropdown>
+          </Card.Body>
+        </Card>
+      </Link>
     </>
   );
 }
