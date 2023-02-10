@@ -1,11 +1,10 @@
-import { useRouter } from 'next/router';
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { Button, FloatingLabel, Form } from 'react-bootstrap';
 import { useAuth } from '../../utils/context/authContext';
 import { createComment, updateComment } from '../../API/commentsData';
 
-const intialState = {
+const initialState = {
   firebaseKey: '',
   uid: '',
   text: '',
@@ -14,11 +13,9 @@ const intialState = {
   author: '',
 };
 
-export default function AddAComment({ onUpdate }) {
-  const [formInput, setFormInput] = useState(intialState);
-  const router = useRouter();
+export default function AddAComment({ videoFbKey, onUpdate }) {
+  const [formInput, setFormInput] = useState(initialState);
   const { user } = useAuth();
-  const { videoFirebaseKey } = router.query;
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -35,13 +32,14 @@ export default function AddAComment({ onUpdate }) {
       uid: user.uid,
       date_added: new Date().toLocaleString(),
       author: user.displayName,
-      video_id: videoFirebaseKey,
+      video_id: videoFbKey,
     };
     createComment(payload)
       .then(({ name }) => {
         const patchPayload = { firebaseKey: name };
         updateComment(patchPayload)
-          .then(() => onUpdate());
+          .then(() => onUpdate())
+          .then(setFormInput(initialState));
       });
   };
 
@@ -66,5 +64,6 @@ export default function AddAComment({ onUpdate }) {
 }
 
 AddAComment.propTypes = {
+  videoFbKey: PropTypes.string.isRequired,
   onUpdate: PropTypes.func.isRequired,
 };

@@ -71,7 +71,7 @@ export default function ViewVideo() {
           </div>
         </div>
         <div className="comment-form">
-          <AddAComment onUpdate={deleteMe} />
+          <AddAComment videoFbKey={firebaseKey} onUpdate={deleteMe} />
         </div>
       </div>
     </>
