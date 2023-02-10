@@ -18,28 +18,28 @@ function PlaylistCard({ playlistObj, onUpdate }) {
   };
   return (
     <>
-      <Link passHref href={`/playlist/${playlistObj.firebaseKey}`}>
-        <Card className="video-card">
+      <Card className="video-card">
+        <Link passHref href={`/playlist/${playlistObj.firebaseKey}`}>
           <div className="card-video-container">
             <img className="card-video" src={playlistObj.image} alt={playlistObj.playlist_name}></img>
           </div>
-          <Card.Body className="video-card-body">
-            <Card.Title className="video-card-title">{playlistObj.playlist_name}
-            </Card.Title>
+        </Link>
+        <Card.Body className="video-card-body">
+          <Card.Title className="video-card-title">{playlistObj.playlist_name}
+          </Card.Title>
 
-            <Dropdown>
-              <Dropdown.Toggle className="video-card-dropdown">
-                Options
-              </Dropdown.Toggle>
-              <Dropdown.Menu>
-                <Dropdown.Item className="dropdown-item" href={`/playlist/${playlistObj.firebaseKey}`}>View</Dropdown.Item>
-                <Dropdown.Item className="dropdown-item" href={`/playlist/edit/${playlistObj.firebaseKey}`}>Edit</Dropdown.Item>
-                <Dropdown.Item className="dropdown-item" onClick={deleteThisPlaylist}>Delete</Dropdown.Item>
-              </Dropdown.Menu>
-            </Dropdown>
-          </Card.Body>
-        </Card>
-      </Link>
+          <Dropdown>
+            <Dropdown.Toggle className="video-card-dropdown">
+              Options
+            </Dropdown.Toggle>
+            <Dropdown.Menu>
+              <Dropdown.Item className="dropdown-item" href={`/playlist/${playlistObj.firebaseKey}`}>View</Dropdown.Item>
+              <Dropdown.Item className="dropdown-item" href={`/playlist/edit/${playlistObj.firebaseKey}`}>Edit</Dropdown.Item>
+              <Dropdown.Item className="dropdown-item" onClick={deleteThisPlaylist}>Delete</Dropdown.Item>
+            </Dropdown.Menu>
+          </Dropdown>
+        </Card.Body>
+      </Card>
     </>
   );
 }

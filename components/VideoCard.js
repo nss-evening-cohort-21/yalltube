@@ -8,13 +8,13 @@ import PropTypes from 'prop-types';
 import Card from 'react-bootstrap/Card';
 import Dropdown from 'react-bootstrap/Dropdown';
 import { useAuth } from '../utils/context/authContext';
-import { deleteVideo } from '../API/videoData';
 import PlaylistSelectModal from './PlaylistSelectModal';
+import { deleteVideoComments } from '../API/commentsData';
 
 function VideoCard({ videoObj, onUpdate }) {
   const deleteThisVideo = () => {
     if (window.confirm(`Delete ${videoObj.video_title}?`)) {
-      deleteVideo(videoObj.firebaseKey).then(() => onUpdate());
+      deleteVideoComments(videoObj.firebaseKey).then(() => onUpdate());
     }
   };
   const { user } = useAuth();
@@ -27,7 +27,7 @@ function VideoCard({ videoObj, onUpdate }) {
         <Card.Body className="video-card-body">
           <Card.Title className="video-card-title">{videoObj.video_title} {user.uid === videoObj.uid
             ? (
-              <div className="card-public">{videoObj.public === true ? '(Public)' : '(Private)' }</div>
+              <div className="card-public">{videoObj.public === true ? '(Public)' : '(Private)'}</div>
             ) : ''}
           </Card.Title>
           <div>{videoObj.username}</div>
