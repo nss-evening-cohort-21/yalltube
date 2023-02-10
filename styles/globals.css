@@ -257,3 +257,19 @@ body {
   background-color: #212121;
   color: #f1f1f1;
 }
+
+.addBtn {
+  background-color: white;
+  color: #212121;
+  border: none;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.addBtn:hover {
+  background-color: transparent;
+}
+
+.dropdown-item:focus {
+  background-color: transparent;
+}

@@ -28,8 +28,8 @@ export default function PlaylistVideoCard({ playlistVideoObj, playlistId, onUpda
               Options
             </Dropdown.Toggle>
             <Dropdown.Menu>
-              <Dropdown.Item href={`/video/${playlistVideoObj.firebaseKey}`}>View</Dropdown.Item>
-              <Dropdown.Item onClick={removeThisVideo}>Remove</Dropdown.Item>
+              <Dropdown.Item className="dropdown-item" href={`/video/${playlistVideoObj.firebaseKey}`}>View</Dropdown.Item>
+              <Dropdown.Item className="dropdown-item" onClick={removeThisVideo}>Remove</Dropdown.Item>
             </Dropdown.Menu>
           </Dropdown>
         </Card.Body>
