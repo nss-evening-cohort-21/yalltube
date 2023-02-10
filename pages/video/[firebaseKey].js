@@ -7,6 +7,7 @@ import { useAuth } from '../../utils/context/authContext';
 import styles from '../../styles/ViewVideoPage.module.css';
 import CommentCard from '../../components/CommentCard';
 import { getCommentsByVideoId } from '../../API/commentsData';
+import AddAComment from '../../components/forms/CommentForm';
 
 export default function ViewVideo() {
   const [videoDetails, setVideoDetails] = useState([]);
@@ -78,6 +79,9 @@ export default function ViewVideo() {
             ))}
             </div>
           </div>
+        </div>
+        <div className="comment-form">
+          <AddAComment videoFbKey={firebaseKey} onUpdate={displayComments} />
         </div>
       </div>
     </>
