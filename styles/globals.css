@@ -22,6 +22,16 @@ body {
   color: white;
 }
 
+.navbar {
+  overflow: hidden;
+  background-color: #212121;
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+  height: 70px;
+}
+
 .offcanvas-body {
   background-color: #212121;
   display: flex;
