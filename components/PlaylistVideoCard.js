@@ -4,11 +4,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Card from 'react-bootstrap/Card';
 import Dropdown from 'react-bootstrap/Dropdown';
+import { deleteMergedObj, getSingleMergedObj } from '../API/mergedData';
 
-export default function PlaylistVideoCard({ playlistVideoObj, onUpdate }) {
+export default function PlaylistVideoCard({ playlistVideoObj, playlistId, onUpdate }) {
   const removeThisVideo = () => {
     if (window.confirm(`Remove ${playlistVideoObj.video_title}?`)) {
-      console.warn(playlistVideoObj.firebaseKey).then(() => onUpdate());
+      getSingleMergedObj(playlistId, playlistVideoObj.firebaseKey).then((obj) => {
+        deleteMergedObj(obj.firebaseKey).then(() => onUpdate());
+      });
     }
   };
   return (
@@ -42,5 +45,6 @@ PlaylistVideoCard.propTypes = {
     firebaseKey: PropTypes.string,
     uid: PropTypes.string,
   }).isRequired,
+  playlistId: PropTypes.string.isRequired,
   onUpdate: PropTypes.func.isRequired,
 };

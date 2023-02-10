@@ -7,12 +7,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Card from 'react-bootstrap/Card';
 import Dropdown from 'react-bootstrap/Dropdown';
-import { deletePlaylist } from '../API/playlistData';
+import { deletePlaylistData } from '../API/mergedData';
 
 function PlaylistCard({ playlistObj, onUpdate }) {
   const deleteThisPlaylist = () => {
     if (window.confirm(`Delete ${playlistObj.playlist_name}?`)) {
-      deletePlaylist(playlistObj.firebaseKey).then(() => onUpdate());
+      deletePlaylistData(playlistObj.firebaseKey).then(() => onUpdate());
     }
   };
   return (
@@ -33,7 +33,6 @@ function PlaylistCard({ playlistObj, onUpdate }) {
               <Dropdown.Item href={`/playlist/${playlistObj.firebaseKey}`}>View</Dropdown.Item>
               <Dropdown.Item href={`/playlist/edit/${playlistObj.firebaseKey}`}>Edit</Dropdown.Item>
               <Dropdown.Item onClick={deleteThisPlaylist}>Delete</Dropdown.Item>
-
             </Dropdown.Menu>
           </Dropdown>
         </Card.Body>

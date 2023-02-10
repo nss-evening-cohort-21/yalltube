@@ -104,6 +104,24 @@ const getPublicVideos = () => new Promise((resolve, reject) => {
     })
     .catch(reject);
 });
+// GET all videos
+const getAllVideos = () => new Promise((resolve, reject) => {
+  fetch(`${endpoint}/videos.json`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      if (data) {
+        resolve(Object.values(data));
+      } else {
+        resolve([]);
+      }
+    })
+    .catch(reject);
+});
 export {
   getUserVideos,
   getHomeVideos,
@@ -112,4 +130,5 @@ export {
   updateVideo,
   deleteVideo,
   getPublicVideos,
+  getAllVideos,
 };
