@@ -30,9 +30,9 @@ function PlaylistCard({ playlistObj, onUpdate }) {
               Options
             </Dropdown.Toggle>
             <Dropdown.Menu>
-              <Dropdown.Item href={`/playlist/${playlistObj.firebaseKey}`}>View</Dropdown.Item>
-              <Dropdown.Item href={`/playlist/edit/${playlistObj.firebaseKey}`}>Edit</Dropdown.Item>
-              <Dropdown.Item onClick={deleteThisPlaylist}>Delete</Dropdown.Item>
+              <Dropdown.Item className="dropdown-item" href={`/playlist/${playlistObj.firebaseKey}`}>View</Dropdown.Item>
+              <Dropdown.Item className="dropdown-item" href={`/playlist/edit/${playlistObj.firebaseKey}`}>Edit</Dropdown.Item>
+              <Dropdown.Item className="dropdown-item" onClick={deleteThisPlaylist}>Delete</Dropdown.Item>
             </Dropdown.Menu>
           </Dropdown>
         </Card.Body>

@@ -36,15 +36,15 @@ function VideoCard({ videoObj, onUpdate }) {
               Options
             </Dropdown.Toggle>
             <Dropdown.Menu>
-              <Dropdown.Item href={`/video/${videoObj.firebaseKey}`}>View</Dropdown.Item>
+              <Dropdown.Item className="dropdown-item" href={`/video/${videoObj.firebaseKey}`}>View</Dropdown.Item>
               {videoObj.uid === user.uid
                 ? (
-                  <Dropdown.Item href={`/video/edit/${videoObj.firebaseKey}`}>Edit</Dropdown.Item>
+                  <Dropdown.Item className="dropdown-item" href={`/video/edit/${videoObj.firebaseKey}`}>Edit</Dropdown.Item>
                 ) : ''}
               {videoObj.uid === user.uid
-                ? (<Dropdown.Item onClick={deleteThisVideo}>Delete</Dropdown.Item>
+                ? (<Dropdown.Item className="dropdown-item" onClick={deleteThisVideo}>Delete</Dropdown.Item>
                 ) : ''}
-              <Dropdown.Item><PlaylistSelectModal obj={videoObj} /></Dropdown.Item>
+              <Dropdown.Item className="dropdown-item"><PlaylistSelectModal obj={videoObj} /></Dropdown.Item>
             </Dropdown.Menu>
           </Dropdown>
         </Card.Body>
