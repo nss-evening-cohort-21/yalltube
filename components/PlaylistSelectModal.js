@@ -51,9 +51,9 @@ export default function PlaylistSelectModal({ obj }) {
 
   return (
     <>
-      <Button variant="primary" onClick={handleShow}>
+      <button className="addBtn" onClick={handleShow} type="button">
         Add to Playlist?
-      </Button>
+      </button>
 
       <Modal show={show} onHide={handleClose}>
         <Modal.Header className="playlistModal" closeButton>
@@ -85,7 +85,7 @@ export default function PlaylistSelectModal({ obj }) {
           </Form>
         </Modal.Body>
         <Modal.Footer className="playlistModal">
-          <Button variant="primary" onClick={handleSubmit}>
+          <Button variant="light" onClick={handleSubmit}>
             Add
           </Button>
         </Modal.Footer>
