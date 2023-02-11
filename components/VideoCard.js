@@ -27,7 +27,7 @@ function VideoCard({ videoObj, onUpdate }) {
           <iframe className="card-video" src={`${videoObj.video_url}?modestbranding=1&showinfo=0&mute=1`} title={videoObj.video_title}></iframe>
         </div>
         <Card.Body className="video-card-body">
-          <Link passHref href={`video/${videoObj.firebaseKey}`}>
+          <Link passHref href={`/video/${videoObj.firebaseKey}`}>
             <a className="vid-card-link">
               <Card.Title className="video-card-title">{videoObj.video_title} {user.uid === videoObj.uid
                 ? (
