@@ -1,15 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Card from 'react-bootstrap/Card';
-// import { deleteComment } from '../API/commentsData';
+import { Button } from 'react-bootstrap';
+import { deleteComment } from '../API/commentsData';
+import { useAuth } from '../utils/context/authContext';
 
-function CommentCard({ commentObj }) {
-  // const deleteThisComment = () => {
-  //   if (window.confirm('Delete your comment?')) {
-  //     deleteComment(commentObj.firebaseKey).then(() => onUpdate());
-  //   }
-  // };
-  // const { user } = useAuth();
+function CommentCard({ commentObj, onUpdate }) {
+  const deleteThisComment = () => {
+    if (window.confirm('Delete your comment?')) {
+      deleteComment(commentObj.firebaseKey).then(() => onUpdate());
+    }
+  };
+  const { user } = useAuth();
 
   return (
     <>
@@ -27,6 +29,16 @@ function CommentCard({ commentObj }) {
                 {commentObj.author}
               </footer>
             </blockquote>
+            <div>
+              {commentObj.uid === user.uid ? (
+                <Button
+                  className="red-btn"
+                  onClick={deleteThisComment}
+                >
+                  Delete
+                </Button>
+              ) : ''}
+            </div>
           </Card.Body>
         </div>
       </Card>
@@ -43,6 +55,7 @@ CommentCard.propTypes = {
     firebaseKey: PropTypes.string,
     author: PropTypes.string,
   }).isRequired,
+  onUpdate: PropTypes.func.isRequired,
 };
 
 export default CommentCard;
