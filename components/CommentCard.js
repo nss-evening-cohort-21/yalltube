@@ -28,13 +28,13 @@ function CommentCard({ commentObj, onUpdate }) {
               <footer className="blockquote-footer">
                 {commentObj.author}
                 {commentObj.uid === user.uid ? (
-                <Button
-                  className="red-btn comment-btn"
-                  onClick={deleteThisComment}
-                >
-                  Delete
-                </Button>
-              ) : ''}
+                  <Button
+                    className="red-btn comment-btn"
+                    onClick={deleteThisComment}
+                  >
+                    Delete
+                  </Button>
+                ) : ''}
               </footer>
             </blockquote>
 
