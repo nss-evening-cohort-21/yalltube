@@ -169,3 +169,16 @@ body {
   background-color: #212121;
   border-radius: 20px;
 }
+
+.comment-btn {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  margin: 8px;
+}
+
+.comment-btn:hover {
+  background-color: grey;
+  border-color: grey;
+  color: white;
+}

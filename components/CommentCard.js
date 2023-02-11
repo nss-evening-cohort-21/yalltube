@@ -27,18 +27,17 @@ function CommentCard({ commentObj, onUpdate }) {
               </p>
               <footer className="blockquote-footer">
                 {commentObj.author}
-              </footer>
-            </blockquote>
-            <div>
-              {commentObj.uid === user.uid ? (
+                {commentObj.uid === user.uid ? (
                 <Button
-                  className="red-btn"
+                  className="red-btn comment-btn"
                   onClick={deleteThisComment}
                 >
                   Delete
                 </Button>
               ) : ''}
-            </div>
+              </footer>
+            </blockquote>
+
           </Card.Body>
         </div>
       </Card>
