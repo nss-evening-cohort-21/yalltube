@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import Card from 'react-bootstrap/Card';
 import { Button } from 'react-bootstrap';
 import { deleteComment } from '../API/commentsData';
 import { useAuth } from '../utils/context/authContext';
+import { getSingleVideo } from '../API/videoData';
 
 function CommentCard({ commentObj, onUpdate }) {
   const deleteThisComment = () => {
@@ -12,6 +13,11 @@ function CommentCard({ commentObj, onUpdate }) {
     }
   };
   const { user } = useAuth();
+  const [video, setVideo] = useState({});
+
+  useEffect(() => {
+    getSingleVideo(commentObj.video_id).then(setVideo);
+  }, [commentObj.video_id]);
 
   return (
     <>
@@ -27,14 +33,15 @@ function CommentCard({ commentObj, onUpdate }) {
               </p>
               <footer className="blockquote-footer">
                 {commentObj.author}
-                {commentObj.uid === user.uid ? (
-                  <Button
-                    className="red-btn comment-btn"
-                    onClick={deleteThisComment}
-                  >
-                    Delete
-                  </Button>
-                ) : ''}
+                {commentObj.uid === user.uid || user.displayName === video.username
+                  ? (
+                    <Button
+                      className="red-btn comment-btn"
+                      onClick={deleteThisComment}
+                    >
+                      Delete
+                    </Button>
+                  ) : ''}
               </footer>
             </blockquote>
 
