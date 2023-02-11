@@ -34,7 +34,6 @@ function CommentCard({ commentObj, onUpdate }) {
               <footer className="blockquote-footer">
                 {commentObj.author}
                 {commentObj.uid === user.uid || user.displayName === video.username
-
                   ? (
                     <Button
                       className="red-btn comment-btn"
